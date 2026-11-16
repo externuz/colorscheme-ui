@@ -18,6 +18,7 @@ import {
   RadioCard,
   RadioGroup,
   ScrollShadow,
+  Select,
   Separator,
   Spinner,
   Switch,
@@ -212,6 +213,35 @@ describe('colorscheme-ui', () => {
     expect(screen.getByText('Actions')).toBeInTheDocument();
     fireEvent.click(screen.getByText('Rename'));
     expect(onSelect).toHaveBeenCalledTimes(1);
+  });
+
+  it('Select resolves initial item label before opening and selects option', () => {
+    const onValueChange = vi.fn();
+    render(
+      <Select.Root value="bun" onValueChange={onValueChange}>
+        <Select.Trigger aria-label="Runtime" />
+        <Select.Content>
+          <Select.Group>
+            <Select.GroupLabel>Runtimes</Select.GroupLabel>
+            <Select.Item value="bun" description="Fast JS toolkit">
+              Bun 1.4
+            </Select.Item>
+            <Select.Item value="deno">Deno 2.2</Select.Item>
+          </Select.Group>
+        </Select.Content>
+      </Select.Root>,
+    );
+
+    const trigger = screen.getByRole('combobox', { name: 'Runtime' });
+    expect(trigger).toHaveTextContent('Bun 1.4');
+
+    fireEvent.click(trigger);
+    expect(screen.getByText('Runtimes')).toBeInTheDocument();
+
+    const denoOption = screen.getByRole('option', { name: 'Deno 2.2' });
+    fireEvent.pointerDown(denoOption);
+    fireEvent.click(denoOption);
+    expect(onValueChange).toHaveBeenCalledWith('deno');
   });
 
   it('Card, Chip, Table, Separator, Spinner, and ScrollShadow render semantic structure', () => {

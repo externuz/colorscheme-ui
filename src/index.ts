@@ -19,6 +19,14 @@ export { Modal, type ModalSize } from './components/Modal/Modal';
 export { Radio, RadioGroup, type RadioGroupProps, type RadioProps } from './components/Radio/Radio';
 export { RadioCard, type RadioCardProps } from './components/RadioCard/RadioCard';
 export { ScrollShadow, type ScrollShadowProps } from './components/ScrollShadow/ScrollShadow';
+export {
+  Select,
+  type SelectContentProps,
+  type SelectItemProps,
+  type SelectRootProps,
+  type SelectSize,
+  type SelectTriggerProps,
+} from './components/Select/Select';
 export { Separator, type SeparatorProps } from './components/Separator/Separator';
 export { Slider, type SliderProps } from './components/Slider/Slider';
 export { Spinner, type SpinnerProps } from './components/Spinner/Spinner';
