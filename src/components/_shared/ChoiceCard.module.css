@@ -1,0 +1,136 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-sunken);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  user-select: none;
+  text-align: left;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.card:hover:not(.cardDisabled):not(:has([data-disabled])) {
+  border-color: var(--border-default);
+  background-color: var(--bg-hover);
+}
+
+.card:has(:focus-visible) {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.card :focus-visible {
+  outline: none;
+}
+
+.cardDisabled,
+.card:has([data-disabled]) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.iconSlot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text-primary);
+}
+
+.description {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.controlSlot {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Active Palette Highlights (works for controlled & uncontrolled via :has([data-checked])) */
+.color-accent.cardChecked,
+.color-accent:has([data-checked]) {
+  background-color: var(--accent-subtle);
+  border-color: var(--accent-border);
+}
+
+.color-yellow.cardChecked,
+.color-yellow:has([data-checked]) {
+  background-color: var(--palette-yellow-subtle);
+  border-color: var(--palette-yellow-border);
+}
+
+.color-orange.cardChecked,
+.color-orange:has([data-checked]) {
+  background-color: var(--palette-orange-subtle);
+  border-color: var(--palette-orange-border);
+}
+
+.color-blue.cardChecked,
+.color-blue:has([data-checked]) {
+  background-color: var(--palette-blue-subtle);
+  border-color: var(--palette-blue-border);
+}
+
+.color-green.cardChecked,
+.color-green:has([data-checked]) {
+  background-color: var(--palette-green-subtle);
+  border-color: var(--palette-green-border);
+}
+
+.color-purple.cardChecked,
+.color-purple:has([data-checked]) {
+  background-color: var(--palette-purple-subtle);
+  border-color: var(--palette-purple-border);
+}
+
+.color-cyan.cardChecked,
+.color-cyan:has([data-checked]) {
+  background-color: var(--palette-cyan-subtle);
+  border-color: var(--palette-cyan-border);
+}
+
+.color-neutral.cardChecked,
+.color-neutral:has([data-checked]) {
+  background-color: var(--bg-elevated);
+  border-color: var(--border-default);
+}

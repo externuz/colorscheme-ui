@@ -43,9 +43,47 @@
 }
 
 .box[data-checked] {
+  color: var(--text-on-accent);
+}
+
+.accent[data-checked] {
   background-color: var(--accent-primary);
   border-color: var(--accent-primary);
-  color: var(--text-on-accent);
+}
+
+.yellow[data-checked] {
+  background-color: var(--palette-yellow);
+  border-color: var(--palette-yellow);
+}
+
+.orange[data-checked] {
+  background-color: var(--palette-orange);
+  border-color: var(--palette-orange);
+}
+
+.blue[data-checked] {
+  background-color: var(--palette-blue);
+  border-color: var(--palette-blue);
+}
+
+.green[data-checked] {
+  background-color: var(--palette-green);
+  border-color: var(--palette-green);
+}
+
+.purple[data-checked] {
+  background-color: var(--palette-purple);
+  border-color: var(--palette-purple);
+}
+
+.cyan[data-checked] {
+  background-color: var(--palette-cyan);
+  border-color: var(--palette-cyan);
+}
+
+.neutral[data-checked] {
+  background-color: var(--text-secondary);
+  border-color: var(--text-secondary);
 }
 
 .box[data-disabled] {

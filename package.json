@@ -1,6 +1,6 @@
 {
   "name": "colorscheme-ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Flat, accessible React UI components powered by Base UI, CSS Modules, and iconic editor colorschemes (Tokyo Night, Catppuccin Mocha, Gruvbox).",
   "type": "module",
   "license": "MIT",

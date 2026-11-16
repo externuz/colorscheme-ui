@@ -5,6 +5,7 @@ import {
   Button,
   Card,
   Checkbox,
+  CheckboxCard,
   Chip,
   configureColorScheme,
   Drawer,
@@ -13,10 +14,14 @@ import {
   getThemeInitScript,
   Input,
   Modal,
+  Radio,
+  RadioCard,
+  RadioGroup,
   ScrollShadow,
   Separator,
   Spinner,
   Switch,
+  SwitchCard,
   setColorScheme,
   Table,
   THEMES,
@@ -78,18 +83,23 @@ describe('colorscheme-ui', () => {
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it('Switch.Row and Checkbox toggle state via Base UI', () => {
+  it('Atomic Switch, Checkbox, and RadioGroup + Radio toggle states cleanly', () => {
     const onSwitch = vi.fn();
     const onCheck = vi.fn();
+    const onRadio = vi.fn();
 
     render(
       <div>
-        <Switch.Row checked={false} color="accent" onCheckedChange={onSwitch}>
+        <Switch checked={false} color="accent" onCheckedChange={onSwitch}>
           LSP Diagnostics
-        </Switch.Row>
+        </Switch>
         <Checkbox checked={false} onCheckedChange={onCheck}>
           Auto-format
         </Checkbox>
+        <RadioGroup value="neovim" onValueChange={onRadio} aria-label="Keymap">
+          <Radio value="neovim">Neovim</Radio>
+          <Radio value="emacs">Emacs</Radio>
+        </RadioGroup>
       </div>,
     );
 
@@ -98,6 +108,47 @@ describe('colorscheme-ui', () => {
 
     fireEvent.click(screen.getByRole('checkbox'));
     expect(onCheck).toHaveBeenCalledWith(true);
+
+    fireEvent.click(screen.getByText('Emacs'));
+    expect(onRadio).toHaveBeenCalledWith('emacs');
+  });
+
+  it('SwitchCard, CheckboxCard, and RadioCard toggle via full-card label click', () => {
+    const onSwitchCard = vi.fn();
+    const onCheckboxCard = vi.fn();
+    const onRadioCard = vi.fn();
+
+    render(
+      <div>
+        <SwitchCard
+          checked={false}
+          color="yellow"
+          title="Tree-sitter"
+          description="Incremental syntax parser"
+          onCheckedChange={onSwitchCard}
+        />
+        <CheckboxCard
+          checked={false}
+          color="green"
+          title="Daily Snapshots"
+          description="Automated backups"
+          onCheckedChange={onCheckboxCard}
+        />
+        <RadioGroup value="fast" onValueChange={onRadioCard} aria-label="Build profile">
+          <RadioCard value="fast" title="Fast Dev" description="Sub-second rebuilds" />
+          <RadioCard value="release" title="Release" description="Full LTO optimization" />
+        </RadioGroup>
+      </div>,
+    );
+
+    fireEvent.click(screen.getByText('Tree-sitter'));
+    expect(onSwitchCard).toHaveBeenCalledWith(true);
+
+    fireEvent.click(screen.getByText('Daily Snapshots'));
+    expect(onCheckboxCard).toHaveBeenCalledWith(true);
+
+    fireEvent.click(screen.getByText('Release'));
+    expect(onRadioCard).toHaveBeenCalledWith('release');
   });
 
   it('ToggleGroup switches active item', () => {
@@ -206,9 +257,7 @@ describe('colorscheme-ui', () => {
     });
 
     render(<ColorSchemeProbe />);
-    expect(screen.getByRole('button')).toHaveTextContent(
-      'Active: tokyonight'.replace('tokyonight', 'tokyo-night'),
-    );
+    expect(screen.getByRole('button')).toHaveTextContent('Active: tokyo-night');
 
     fireEvent.click(screen.getByRole('button'));
     expect(screen.getByRole('button')).toHaveTextContent('Active: gruvbox-light');

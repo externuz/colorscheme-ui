@@ -2,25 +2,36 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Switch } from './Switch';
 
-const meta: Meta<typeof Switch.Control> = {
+const meta: Meta<typeof Switch> = {
   title: 'Components/Switch',
-  component: Switch.Control,
+  component: Switch,
+  args: {
+    children: 'Format buffer on save',
+    defaultChecked: true,
+    size: 'md',
+    color: 'accent',
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof Switch.Control>;
+type Story = StoryObj<typeof Switch>;
 
-export const InteractiveRow: Story = {
+export const Default: Story = {};
+
+export const SizesAndColors: Story = {
   render: () => {
-    const [on, setOn] = useState(true);
+    const [enabled, setEnabled] = useState(true);
     return (
-      <div style={{ width: '320px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <Switch.Row checked={on} onCheckedChange={setOn} color="accent">
-          <span style={{ fontSize: '13px', fontWeight: 600 }}>Tree-sitter Highlighting</span>
-          <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
-            Incremental AST parser
-          </span>
-        </Switch.Row>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        <Switch size="sm" checked={enabled} onCheckedChange={setEnabled}>
+          Small inline switch
+        </Switch>
+        <Switch size="md" color="green" checked={enabled} onCheckedChange={setEnabled}>
+          Medium green switch
+        </Switch>
+        <Switch size="md" color="yellow" checked={enabled} onCheckedChange={setEnabled}>
+          Medium yellow switch
+        </Switch>
       </div>
     );
   },

@@ -1,89 +1,62 @@
 import { Switch as BaseSwitch } from '@base-ui/react/switch';
-import type { ComponentPropsWithRef, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import type { ControlColor } from '../_shared/ChoiceCard';
 import styles from './Switch.module.css';
 
-export type SwitchColor = 'accent' | 'yellow' | 'orange' | 'blue' | 'green' | 'neutral';
+export type SwitchColor = ControlColor;
 
-export interface SwitchControlProps {
+export interface SwitchProps {
   checked?: boolean;
   defaultChecked?: boolean;
   disabled?: boolean;
   color?: SwitchColor;
   size?: 'sm' | 'md';
   onCheckedChange?: (checked: boolean) => void;
+  children?: ReactNode;
   className?: string;
   'aria-label'?: string;
 }
 
-function Control({
+export function Switch({
   checked,
   defaultChecked,
   disabled = false,
   color = 'accent',
   size = 'md',
   onCheckedChange,
+  children,
   className = '',
   'aria-label': ariaLabel,
-}: SwitchControlProps) {
-  const classes = [styles.track, styles[size], styles[color], className].filter(Boolean).join(' ');
+}: SwitchProps) {
+  const trackClasses = [styles.track, styles[size], styles[color], !children ? className : '']
+    .filter(Boolean)
+    .join(' ');
 
-  return (
+  const control = (
     <BaseSwitch.Root
       checked={checked}
       defaultChecked={defaultChecked}
       disabled={disabled}
       onCheckedChange={(val) => onCheckedChange?.(val)}
       aria-label={ariaLabel}
-      className={classes}
+      className={trackClasses}
     >
       <BaseSwitch.Thumb className={styles.thumb} />
     </BaseSwitch.Root>
   );
-}
 
-export interface SwitchRowProps extends Omit<ComponentPropsWithRef<'label'>, 'onChange'> {
-  checked?: boolean;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  color?: SwitchColor;
-  onCheckedChange?: (checked: boolean) => void;
-  children: ReactNode;
-}
-
-function Row({
-  checked,
-  defaultChecked,
-  disabled = false,
-  color = 'accent',
-  onCheckedChange,
-  className = '',
-  children,
-  ...rest
-}: SwitchRowProps) {
-  const rowClasses = [
-    styles.row,
-    checked ? styles[`rowActive-${color}`] : '',
-    disabled ? styles.rowDisabled : '',
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
+  if (!children) {
+    return control;
+  }
 
   return (
-    <label className={rowClasses} {...rest}>
-      <div className={styles.rowContent}>{children}</div>
-      <Control
-        checked={checked}
-        defaultChecked={defaultChecked}
-        disabled={disabled}
-        color={color}
-        onCheckedChange={onCheckedChange}
-      />
+    <label
+      className={[styles.labelWrap, disabled ? styles.labelDisabled : '', className]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {control}
+      <span className={styles.labelText}>{children}</span>
     </label>
   );
 }
-
-export const Switch = {
-  Control,
-  Row,
-};

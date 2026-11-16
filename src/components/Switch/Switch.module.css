@@ -1,3 +1,21 @@
+.labelWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.labelDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.labelText {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
 .track {
   position: relative;
   display: inline-flex;
@@ -89,72 +107,17 @@
   border-color: var(--palette-green);
 }
 
+.purple[data-checked] {
+  background-color: var(--palette-purple);
+  border-color: var(--palette-purple);
+}
+
+.cyan[data-checked] {
+  background-color: var(--palette-cyan);
+  border-color: var(--palette-cyan);
+}
+
 .neutral[data-checked] {
   background-color: var(--text-secondary);
   border-color: var(--text-secondary);
-}
-
-/* Full-width interactive Row card */
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: var(--radius-md);
-  background-color: var(--bg-sunken);
-  border: 1px solid var(--border-subtle);
-  cursor: pointer;
-  user-select: none;
-  transition:
-    background-color var(--transition-fast),
-    border-color var(--transition-fast);
-}
-
-.row:hover:not(.rowDisabled) {
-  border-color: var(--border-default);
-  background-color: var(--bg-hover);
-}
-
-.rowContent {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.rowDisabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.rowActive-accent {
-  background-color: var(--accent-subtle);
-  border-color: var(--accent-border);
-}
-
-.rowActive-yellow {
-  background-color: var(--palette-yellow-subtle);
-  border-color: var(--palette-yellow-border);
-}
-
-.rowActive-orange {
-  background-color: var(--palette-orange-subtle);
-  border-color: var(--palette-orange-border);
-}
-
-.rowActive-blue {
-  background-color: var(--palette-blue-subtle);
-  border-color: var(--palette-blue-border);
-}
-
-.rowActive-green {
-  background-color: var(--palette-green-subtle);
-  border-color: var(--palette-green-border);
-}
-
-.rowActive-neutral {
-  background-color: var(--bg-elevated);
-  border-color: var(--border-default);
 }
