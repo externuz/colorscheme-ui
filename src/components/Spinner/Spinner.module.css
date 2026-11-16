@@ -1,0 +1,60 @@
+.spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.sm {
+  width: 16px;
+  height: 16px;
+}
+
+.md {
+  width: 24px;
+  height: 24px;
+}
+
+.lg {
+  width: 36px;
+  height: 36px;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  animation: spinnerRotate 0.9s linear infinite;
+}
+
+.track {
+  stroke: var(--border-default);
+  opacity: 0.45;
+}
+
+.trackCurrent {
+  stroke: currentColor;
+  opacity: 0.22;
+}
+
+.arc {
+  stroke-dasharray: 42 100;
+  stroke-dashoffset: 0;
+}
+
+.arcAccent {
+  stroke: var(--accent-primary);
+}
+
+.arcCurrent {
+  stroke: currentColor;
+}
+
+@keyframes spinnerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

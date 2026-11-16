@@ -1,0 +1,52 @@
+name: Publish Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (for npm provenance)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Check & Build
+        run: bun run check && bun run build
+
+      - name: Publish to npm (if not already published)
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          PKG_VER=$(node -p "require('./package.json').version")
+          if npm view "colorscheme-ui@${PKG_VER}" version >/dev/null 2>&1; then
+            echo "colorscheme-ui@${PKG_VER} is already published on npm, skipping."
+          else
+            npm publish --provenance --access public
+          fi
+
+      - name: Pack tarball for GitHub Release
+        run: npm pack
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: colorscheme-ui-*.tgz
+          generate_release_notes: true

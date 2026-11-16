@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+.description {
+  margin: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.error {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--status-danger);
+  line-height: 1.4;
+}

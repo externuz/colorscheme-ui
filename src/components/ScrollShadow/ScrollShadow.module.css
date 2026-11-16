@@ -1,0 +1,30 @@
+.container {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.hideScrollBar {
+  scrollbar-width: none;
+}
+
+.hideScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+.maskTop {
+  mask-image: linear-gradient(to bottom, transparent 0px, #000 20px, #000 100%);
+}
+
+.maskBottom {
+  mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 20px), transparent 100%);
+}
+
+.maskBoth {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0px,
+    #000 20px,
+    #000 calc(100% - 20px),
+    transparent 100%
+  );
+}
