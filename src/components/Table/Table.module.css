@@ -1,9 +1,18 @@
 .wrapper {
   width: 100%;
   overflow-x: auto;
+}
+
+.bordered {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   background-color: var(--bg-surface);
+}
+
+.plain {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
 }
 
 .table {
@@ -14,8 +23,15 @@
 }
 
 .thead {
-  background-color: var(--bg-sunken);
   border-bottom: 1px solid var(--border-subtle);
+}
+
+.bordered .thead {
+  background-color: var(--bg-sunken);
+}
+
+.plain .thead {
+  background-color: transparent;
 }
 
 .th {

@@ -1,0 +1,75 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: var(--font-sans);
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.trigger:hover:not(:disabled) {
+  background-color: var(--bg-hover);
+  border-color: var(--border-default);
+}
+
+.trigger:focus-visible {
+  border-color: var(--border-focus);
+}
+
+.trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.trigger[data-panel-open] .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  overflow: hidden;
+  height: var(--collapsible-panel-height);
+  transition:
+    height var(--transition-normal),
+    opacity var(--transition-normal);
+}
+
+.panel[data-starting-style],
+.panel[data-ending-style] {
+  height: 0;
+  opacity: 0;
+}
+
+.content {
+  padding-top: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}

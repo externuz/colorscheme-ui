@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Card } from '../Card/Card';
 import { Chip } from '../Chip/Chip';
 import { Table } from './Table';
 
@@ -41,5 +42,47 @@ export const Default: Story = {
         </Table.Row>
       </Table.Body>
     </Table.Root>
+  ),
+};
+
+export const PlainInsideCard: Story = {
+  render: () => (
+    <Card.Root padding="md" style={{ minWidth: '440px' }}>
+      <Card.Header>
+        <Card.Title>Active Daemons</Card.Title>
+        <Card.Description>Borderless plain table embedded cleanly inside a Card</Card.Description>
+      </Card.Header>
+      <Card.Body>
+        <Table.Root variant="plain">
+          <Table.Header>
+            <Table.Row>
+              <Table.Column>Process</Table.Column>
+              <Table.Column>PID</Table.Column>
+              <Table.Column>State</Table.Column>
+            </Table.Row>
+          </Table.Header>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>nvim --headless</Table.Cell>
+              <Table.Cell style={{ fontFamily: 'var(--font-mono)' }}>41208</Table.Cell>
+              <Table.Cell>
+                <Chip color="cyan" size="sm">
+                  Attached
+                </Chip>
+              </Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>rust-analyzer</Table.Cell>
+              <Table.Cell style={{ fontFamily: 'var(--font-mono)' }}>41294</Table.Cell>
+              <Table.Cell>
+                <Chip color="green" size="sm">
+                  Indexing
+                </Chip>
+              </Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table.Root>
+      </Card.Body>
+    </Card.Root>
   ),
 };

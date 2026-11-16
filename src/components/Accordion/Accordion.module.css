@@ -1,0 +1,112 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: var(--font-sans);
+}
+
+.bordered {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.bordered .item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.bordered .item:last-child {
+  border-bottom: none;
+}
+
+.separated {
+  gap: 8px;
+}
+
+.separated .item {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.plain .item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.plain .item:last-child {
+  border-bottom: none;
+}
+
+.header {
+  margin: 0;
+  display: flex;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: background-color var(--transition-fast);
+}
+
+.trigger:hover:not([data-disabled]) {
+  background-color: var(--bg-hover);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: -2px;
+}
+
+.trigger[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-normal);
+}
+
+.trigger[data-panel-open] .chevron {
+  transform: rotate(180deg);
+}
+
+.panel {
+  overflow: hidden;
+  height: var(--accordion-panel-height);
+  transition:
+    height var(--transition-normal),
+    opacity var(--transition-normal);
+}
+
+.panel[data-starting-style],
+.panel[data-ending-style] {
+  height: 0;
+  opacity: 0;
+}
+
+.content {
+  padding: 0 14px 13px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}

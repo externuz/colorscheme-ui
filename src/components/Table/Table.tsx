@@ -1,10 +1,26 @@
 import type { ComponentPropsWithRef } from 'react';
 import styles from './Table.module.css';
 
-function Root({ className = '', children, ...rest }: ComponentPropsWithRef<'div'>) {
+export type TableVariant = 'bordered' | 'plain';
+
+export interface TableRootProps extends ComponentPropsWithRef<'div'> {
+  variant?: TableVariant;
+  tableClassName?: string;
+}
+
+function Root({
+  variant = 'bordered',
+  className = '',
+  tableClassName = '',
+  children,
+  ...rest
+}: TableRootProps) {
+  const wrapperClasses = [styles.wrapper, styles[variant], className].filter(Boolean).join(' ');
+  const tableClasses = [styles.table, tableClassName].filter(Boolean).join(' ');
+
   return (
-    <div className={[styles.wrapper, className].filter(Boolean).join(' ')} {...rest}>
-      <table className={styles.table}>{children}</table>
+    <div className={wrapperClasses} {...rest}>
+      <table className={tableClasses}>{children}</table>
     </div>
   );
 }

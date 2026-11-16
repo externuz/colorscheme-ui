@@ -1,0 +1,126 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  font-family: var(--font-sans);
+}
+
+.list {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.segmented {
+  padding: 3px;
+  gap: 2px;
+  background-color: var(--bg-sunken);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.underline {
+  width: 100%;
+  gap: 4px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.segmented .tab {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.underline .tab {
+  padding: 8px 12px 10px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+
+.tab:hover:not([data-disabled]):not([data-active]) {
+  color: var(--text-primary);
+}
+
+.tab[data-active] {
+  color: var(--text-primary);
+}
+
+.underline .tab[data-active] {
+  color: var(--accent-primary);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: -2px;
+}
+
+.tab[data-disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.indicator {
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+  transition:
+    transform var(--transition-normal),
+    width var(--transition-normal),
+    height var(--transition-normal);
+}
+
+.segmented .indicator {
+  top: 3px;
+  height: var(--active-tab-height);
+  width: var(--active-tab-width);
+  transform: translateX(var(--active-tab-left));
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.underline .indicator {
+  bottom: -1px;
+  height: 2px;
+  width: var(--active-tab-width);
+  transform: translateX(var(--active-tab-left));
+  background-color: var(--accent-primary);
+  border-radius: var(--radius-full);
+}
+
+.panel {
+  outline: none;
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.panel:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

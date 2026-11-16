@@ -1,0 +1,121 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.description {
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Variants */
+.neutral {
+  background-color: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.neutral .icon {
+  color: var(--text-secondary);
+}
+
+.neutral .description {
+  color: var(--text-secondary);
+}
+
+.info {
+  background-color: var(--palette-blue-subtle);
+  border-color: var(--palette-blue-border);
+  color: var(--text-primary);
+}
+
+.info .icon,
+.info .title {
+  color: var(--palette-blue);
+}
+
+.info .description {
+  color: var(--text-primary);
+}
+
+.success {
+  background-color: var(--status-success-subtle);
+  border-color: var(--status-success-border);
+  color: var(--text-primary);
+}
+
+.success .icon,
+.success .title {
+  color: var(--status-success);
+}
+
+.success .description {
+  color: var(--text-primary);
+}
+
+.warning {
+  background-color: var(--status-warning-subtle);
+  border-color: var(--status-warning-border);
+  color: var(--text-primary);
+}
+
+.warning .icon,
+.warning .title {
+  color: var(--status-warning);
+}
+
+.warning .description {
+  color: var(--text-primary);
+}
+
+.danger {
+  background-color: var(--status-danger-subtle);
+  border-color: var(--status-danger-border);
+  color: var(--text-primary);
+}
+
+.danger .icon,
+.danger .title {
+  color: var(--status-danger);
+}
+
+.danger .description {
+  color: var(--text-primary);
+}

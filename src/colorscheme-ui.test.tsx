@@ -1,16 +1,21 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import {
+  Accordion,
+  Alert,
+  Avatar,
   applyThemeToDom,
   Button,
   Card,
   Checkbox,
   CheckboxCard,
   Chip,
+  Collapsible,
   configureColorScheme,
   Drawer,
   Dropdown,
   Field,
+  getAvatarInitials,
   getThemeInitScript,
   Input,
   Modal,
@@ -20,13 +25,18 @@ import {
   ScrollShadow,
   Select,
   Separator,
+  Skeleton,
   Spinner,
   Switch,
   SwitchCard,
   setColorScheme,
   Table,
+  Tabs,
+  Textarea,
   THEMES,
+  ToastProvider,
   ToggleGroup,
+  toast,
   useColorScheme,
 } from './index';
 
@@ -61,20 +71,27 @@ describe('colorscheme-ui', () => {
     expect(loadingBtn).toHaveAttribute('aria-busy', 'true');
   });
 
-  it('Field + Input binds labels, slots, and validation alert', () => {
+  it('Field + Input + Textarea bind labels, slots, and validation alerts', () => {
     const onChange = vi.fn();
     render(
-      <Field.Root invalid>
-        <Field.Label htmlFor="slug-input">Slug</Field.Label>
-        <Input
-          id="slug-input"
-          placeholder="Enter slug"
-          startSlot={<span data-testid="prefix">~</span>}
-          invalid
-          onChange={onChange}
-        />
-        <Field.Error>Slug is required</Field.Error>
-      </Field.Root>,
+      <div>
+        <Field.Root invalid>
+          <Field.Label htmlFor="slug-input">Slug</Field.Label>
+          <Input
+            id="slug-input"
+            placeholder="Enter slug"
+            startSlot={<span data-testid="prefix">~</span>}
+            invalid
+            onChange={onChange}
+          />
+          <Field.Error>Slug is required</Field.Error>
+        </Field.Root>
+
+        <Field.Root>
+          <Field.Label>Init Script</Field.Label>
+          <Textarea mono autoResize placeholder="Write Lua..." />
+        </Field.Root>
+      </div>,
     );
 
     expect(screen.getByTestId('prefix')).toBeInTheDocument();
@@ -82,6 +99,10 @@ describe('colorscheme-ui', () => {
 
     fireEvent.change(screen.getByPlaceholderText('Enter slug'), { target: { value: 'nvim' } });
     expect(onChange).toHaveBeenCalledTimes(1);
+
+    const textarea = screen.getByPlaceholderText('Write Lua...');
+    fireEvent.input(textarea, { target: { value: 'vim.opt.number = true' } });
+    expect(textarea).toHaveValue('vim.opt.number = true');
   });
 
   it('Atomic Switch, Checkbox, and RadioGroup + Radio toggle states cleanly', () => {
@@ -152,17 +173,66 @@ describe('colorscheme-ui', () => {
     expect(onRadioCard).toHaveBeenCalledWith('release');
   });
 
-  it('ToggleGroup switches active item', () => {
-    const onValueChange = vi.fn();
+  it('ToggleGroup and Tabs switch active items cleanly', () => {
+    const onToggleChange = vi.fn();
     render(
-      <ToggleGroup.Root value="tokyo-night" onValueChange={onValueChange} aria-label="Colorscheme">
-        <ToggleGroup.Item value="tokyo-night">Tokyo</ToggleGroup.Item>
-        <ToggleGroup.Item value="gruvbox-dark">Gruvbox</ToggleGroup.Item>
-      </ToggleGroup.Root>,
+      <div>
+        <ToggleGroup.Root
+          value="tokyo-night"
+          onValueChange={onToggleChange}
+          aria-label="Colorscheme"
+        >
+          <ToggleGroup.Item value="tokyo-night">Tokyo</ToggleGroup.Item>
+          <ToggleGroup.Item value="gruvbox-dark">Gruvbox</ToggleGroup.Item>
+        </ToggleGroup.Root>
+
+        <Tabs.Root defaultValue="first">
+          <Tabs.List variant="underline">
+            <Tabs.Tab value="first">First Tab</Tabs.Tab>
+            <Tabs.Tab value="second">Second Tab</Tabs.Tab>
+          </Tabs.List>
+          <Tabs.Panel value="first">Panel One</Tabs.Panel>
+          <Tabs.Panel value="second">Panel Two</Tabs.Panel>
+        </Tabs.Root>
+      </div>,
     );
 
     fireEvent.click(screen.getByRole('button', { name: 'Gruvbox' }));
-    expect(onValueChange).toHaveBeenCalledWith('gruvbox-dark');
+    expect(onToggleChange).toHaveBeenCalledWith('gruvbox-dark');
+
+    expect(screen.getByText('Panel One')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('tab', { name: 'Second Tab' }));
+    expect(screen.getByText('Panel Two')).toBeInTheDocument();
+  });
+
+  it('Collapsible and Accordion expand and collapse panels', () => {
+    render(
+      <div>
+        <Collapsible.Root defaultOpen={false}>
+          <Collapsible.Trigger>Show Trace</Collapsible.Trigger>
+          <Collapsible.Panel>Trace Details</Collapsible.Panel>
+        </Collapsible.Root>
+
+        <Accordion.Root defaultValue={['a']} variant="bordered">
+          <Accordion.Item value="a">
+            <Accordion.Trigger>Section A</Accordion.Trigger>
+            <Accordion.Panel>Content A</Accordion.Panel>
+          </Accordion.Item>
+          <Accordion.Item value="b">
+            <Accordion.Trigger>Section B</Accordion.Trigger>
+            <Accordion.Panel>Content B</Accordion.Panel>
+          </Accordion.Item>
+        </Accordion.Root>
+      </div>,
+    );
+
+    expect(screen.queryByText('Trace Details')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Show Trace' }));
+    expect(screen.getByText('Trace Details')).toBeInTheDocument();
+
+    expect(screen.getByText('Content A')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Section B' }));
+    expect(screen.getByText('Content B')).toBeInTheDocument();
   });
 
   it('Modal and Drawer render accessible dialogs with English Close default', () => {
@@ -244,17 +314,28 @@ describe('colorscheme-ui', () => {
     expect(onValueChange).toHaveBeenCalledWith('deno');
   });
 
-  it('Card, Chip, Table, Separator, Spinner, and ScrollShadow render semantic structure', () => {
-    render(
+  it('Card, Chip, Table (plain), Alert, Avatar, Skeleton, Separator, Spinner, and ScrollShadow render cleanly', () => {
+    expect(getAvatarInitials('Alex Doe')).toBe('AD');
+    expect(getAvatarInitials('@externuz')).toBe('E');
+
+    const { container } = render(
       <Card.Root variant="elevated" padding="md">
         <Card.Header>
-          <Card.Title>Nodes</Card.Title>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Avatar name="Alex Doe" colorKey="alex_doe" data-testid="avatar-1" />
+            <Avatar name="Bob Smith" colorKey="alex_doe" data-testid="avatar-2" />
+            <Card.Title>Nodes</Card.Title>
+          </div>
           <Chip color="green">Online</Chip>
         </Card.Header>
         <Separator />
         <Card.Body>
+          <Alert variant="danger" title="Node Offline">
+            Broker unreachable
+          </Alert>
+          <Skeleton width={120} height={14} data-testid="skeleton-bar" />
           <ScrollShadow style={{ maxHeight: 120 }}>
-            <Table.Root>
+            <Table.Root variant="plain">
               <Table.Header>
                 <Table.Row>
                   <Table.Column>Service</Table.Column>
@@ -275,9 +356,30 @@ describe('colorscheme-ui', () => {
       </Card.Root>,
     );
 
-    expect(screen.getByText('Nodes')).toBeInTheDocument();
+    expect(screen.getByText('AD')).toBeInTheDocument();
+    expect(container.querySelector('[data-testid="avatar-1"]')?.getAttribute('data-palette')).toBe(
+      container.querySelector('[data-testid="avatar-2"]')?.getAttribute('data-palette'),
+    );
+    expect(screen.getByRole('alert')).toHaveTextContent('Node Offline');
+    expect(screen.getByTestId('skeleton-bar')).toHaveStyle({ width: '120px', height: '14px' });
     expect(screen.getByRole('status', { name: 'Loading' })).toBeInTheDocument();
     expect(screen.getByRole('table')).toBeInTheDocument();
+  });
+
+  it('ToastProvider + imperative toast render and dismiss notifications', () => {
+    render(<ToastProvider position="bottom-right" />);
+
+    let id = '';
+    act(() => {
+      id = toast.success('Config saved', { description: 'init.lua updated' });
+    });
+
+    expect(screen.getByText('Config saved')).toBeInTheDocument();
+    expect(screen.getByText('init.lua updated')).toBeInTheDocument();
+
+    act(() => {
+      toast.dismiss(id);
+    });
   });
 
   it('Colorscheme store switches all 4 palettes and supports custom storageKey', () => {

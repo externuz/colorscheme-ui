@@ -118,12 +118,12 @@ If you only want the CSS variables without the React components, import `colorsc
 
 ---
 
-## Included Components (22)
+## Included Components (29)
 
-- **Atomic Form Controls**: `Button`, `Input`, `Select`, `Field`, `Checkbox`, `Switch`, `RadioGroup` + `Radio`, `Slider`, `ToggleGroup`
+- **Atomic Form Controls**: `Button`, `Input`, `Textarea`, `Select`, `Field`, `Checkbox`, `Switch`, `RadioGroup` + `Radio`, `Slider`, `ToggleGroup`
 - **Choice Cards**: `SwitchCard`, `CheckboxCard`, `RadioCard`
-- **Surfaces & Data Display**: `Card`, `Chip`, `Table`, `Separator`, `ScrollShadow`, `Spinner`
-- **Overlays & Navigation**: `Modal`, `Drawer`, `Dropdown`, `Tooltip` (`TooltipProvider`)
+- **Surfaces, Feedback & Data Display**: `Card`, `Table` (`bordered` / `plain`), `Alert`, `Avatar`, `Chip`, `Skeleton`, `Separator`, `ScrollShadow`, `Spinner`
+- **Navigation, Disclosure & Overlays**: `Tabs`, `Accordion`, `Collapsible`, `Modal`, `Drawer`, `Dropdown`, `ToastProvider` + `toast`, `Tooltip` (`TooltipProvider`)
 - **Utilities**: `cn`, `useColorScheme`, `configureColorScheme`, `applyThemeToDom`, `getThemeInitScript`, `THEMES`
 
 ---
