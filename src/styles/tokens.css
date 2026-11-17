@@ -1,6 +1,6 @@
 /* ==========================================================================
    colorscheme-ui — Semantic Tokens & Editor Colorscheme Palettes
-   Colorschemes: tokyo-night (default) | catppuccin-mocha | gruvbox-dark | gruvbox-light
+   Colorschemes: tokyo-night (default) | catppuccin-mocha | catppuccin-latte | gruvbox-dark | gruvbox-light
    ========================================================================== */
 
 :root,
@@ -173,6 +173,73 @@
 
   --scrollbar-thumb: rgba(186, 194, 222, 0.16);
   --scrollbar-thumb-hover: rgba(186, 194, 222, 0.28);
+}
+
+/* --------------------------------------------------------------------------
+   Catppuccin Latte (#eff1f5)
+   -------------------------------------------------------------------------- */
+[data-theme="catppuccin-latte"] {
+  color-scheme: light;
+
+  --bg-canvas: #eff1f5;
+  --bg-sunken: #e6e9ef;
+  --bg-surface: #f7f8fb;
+  --bg-elevated: #ffffff;
+  --bg-input: #ffffff;
+  --bg-hover: #dce0e8;
+  --bg-active: #ccd0da;
+  --backdrop-bg: rgba(76, 79, 105, 0.42);
+
+  --border-subtle: #dce0e8;
+  --border-default: #ccd0da;
+  --border-strong: #acb0be;
+  --border-focus: #8839ef;
+
+  --text-primary: #4c4f69;
+  --text-secondary: #5c5f77;
+  --text-muted: #7c7f93;
+  --text-on-accent: #eff1f5;
+
+  --accent-primary: #8839ef;
+  --accent-primary-hover: #7227d9;
+  --accent-subtle: rgba(136, 57, 239, 0.1);
+  --accent-border: rgba(136, 57, 239, 0.28);
+
+  --palette-blue: #1e66f5;
+  --palette-blue-subtle: rgba(30, 102, 245, 0.1);
+  --palette-blue-border: rgba(30, 102, 245, 0.26);
+
+  --palette-purple: #8839ef;
+  --palette-purple-subtle: rgba(136, 57, 239, 0.1);
+  --palette-purple-border: rgba(136, 57, 239, 0.26);
+
+  --palette-cyan: #04a5e5;
+  --palette-cyan-subtle: rgba(4, 165, 229, 0.1);
+  --palette-cyan-border: rgba(4, 165, 229, 0.26);
+
+  --palette-green: #40a02b;
+  --palette-green-subtle: rgba(64, 160, 43, 0.1);
+  --palette-green-border: rgba(64, 160, 43, 0.26);
+
+  --palette-yellow: #df8e1d;
+  --palette-yellow-subtle: rgba(223, 142, 29, 0.11);
+  --palette-yellow-border: rgba(223, 142, 29, 0.28);
+
+  --palette-orange: #fe640b;
+  --palette-orange-subtle: rgba(254, 100, 11, 0.1);
+  --palette-orange-border: rgba(254, 100, 11, 0.26);
+
+  --palette-red: #d20f39;
+  --palette-red-hover: #b50b30;
+  --palette-red-subtle: rgba(210, 15, 57, 0.1);
+  --palette-red-border: rgba(210, 15, 57, 0.26);
+
+  --shadow-sm: 0 1px 2px rgba(76, 79, 105, 0.08);
+  --shadow-md: 0 6px 18px rgba(76, 79, 105, 0.12);
+  --shadow-lg: 0 16px 36px rgba(76, 79, 105, 0.18);
+
+  --scrollbar-thumb: rgba(92, 95, 119, 0.22);
+  --scrollbar-thumb-hover: rgba(92, 95, 119, 0.36);
 }
 
 /* --------------------------------------------------------------------------

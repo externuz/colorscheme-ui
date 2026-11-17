@@ -1,7 +1,7 @@
 {
   "name": "colorscheme-ui",
-  "version": "0.4.2",
-  "description": "Flat, accessible React UI components powered by Base UI, CSS Modules, and iconic editor colorschemes (Tokyo Night, Catppuccin Mocha, Gruvbox).",
+  "version": "0.4.3",
+  "description": "Flat, accessible React UI components powered by Base UI, CSS Modules, and iconic editor colorschemes (Tokyo Night, Catppuccin, Gruvbox).",
   "type": "module",
   "license": "MIT",
   "author": "Vladislav Kolesnikov (https://github.com/externuz)",
@@ -26,6 +26,7 @@
     "tokyo-night",
     "catppuccin",
     "catppuccin-mocha",
+    "catppuccin-latte",
     "gruvbox",
     "neovim",
     "base-ui",
@@ -34,6 +35,7 @@
     "design-system",
     "theming",
     "dark-mode",
+    "light-mode",
     "accessible"
   ],
   "main": "./dist/index.js",

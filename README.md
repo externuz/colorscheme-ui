@@ -8,7 +8,7 @@
 
 > `:colorscheme tokyo-night` — for your React web apps.
 
-**colorscheme-ui** is a flat, crisp, accessible React UI component library built on headless [`@base-ui/react`](https://base-ui.com) primitives, pure **CSS Modules**, and semantic CSS custom properties inspired by iconic code-editor colorschemes: **Tokyo Night**, **Catppuccin Mocha**, **Gruvbox Dark**, and **Gruvbox Light**.
+**colorscheme-ui** is a flat, crisp, accessible React UI component library built on headless [`@base-ui/react`](https://base-ui.com) primitives, pure **CSS Modules**, and semantic CSS custom properties inspired by iconic code-editor colorschemes: **Tokyo Night**, **Catppuccin Mocha**, **Catppuccin Latte**, **Gruvbox Dark**, and **Gruvbox Light**.
 
 <p align="center">
   <a href="https://externuz.github.io/colorscheme-ui/">
@@ -17,7 +17,7 @@
 </p>
 
 - **Zero Tailwind, zero runtime CSS-in-JS** — tiny static CSS (~8.5 kB gzipped) with zero specificity wars.
-- **4 iconic editor colorschemes out of the box** — instant `[data-theme]` switching with zero FOUC.
+- **5 iconic editor colorschemes out of the box** — instant `[data-theme]` switching with zero FOUC.
 - **WAI-ARIA accessible** — focus management, keyboard navigation, and portals powered by `@base-ui/react`.
 - **Flat, terminal-crisp aesthetic** — clean 1px borders, balanced contrast, zero neon glow or heavy glassmorphism.
 - **Interactive Storybook** — [https://externuz.github.io/colorscheme-ui/](https://externuz.github.io/colorscheme-ui/)
@@ -47,7 +47,7 @@ Import the stylesheet once at your app entry point (`main.tsx` or `layout.tsx`),
 
 ```tsx
 import 'colorscheme-ui/reset.css'; // Optional minimal modern CSS reset
-import 'colorscheme-ui/styles.css'; // Semantic tokens (4 colorschemes) + component styles
+import 'colorscheme-ui/styles.css'; // Semantic tokens (5 colorschemes) + component styles
 
 import { Button, Card, Field, Input, TooltipProvider, useColorScheme } from 'colorscheme-ui';
 
@@ -119,6 +119,7 @@ configureColorScheme({
 | ------------------ | ----- | --------- | --------- | -------------- |
 | `tokyo-night`      | Dark  | `#1a1b26` | `#1f2335` | `#7aa2f7`      |
 | `catppuccin-mocha` | Dark  | `#1e1e2e` | `#242538` | `#cba6f7`      |
+| `catppuccin-latte` | Light | `#eff1f5` | `#f7f8fb` | `#8839ef`      |
 | `gruvbox-dark`     | Dark  | `#282828` | `#32302f` | `#fe8019`      |
 | `gruvbox-light`    | Light | `#fbf1c7` | `#f9f5d7` | `#d65d0e`      |
 
@@ -184,8 +185,8 @@ bun run build           # Build ESM bundle, TypeScript declarations, and CSS
 Color palettes are inspired by the original open-source colorscheme creators:
 
 - **[Tokyo Night](https://github.com/enkia/tokyo-night-vscode-theme)** by [Enkia](https://github.com/enkia) (MIT)
-- **[Catppuccin](https://github.com/catppuccin/catppuccin)** by [Catppuccin Org](https://github.com/catppuccin) (MIT)
-- **[Gruvbox](https://github.com/morhetz/gruvbox)** by [Pavel Pertsev (`morhetz`)](https://github.com/morhetz) (MIT/X11)
+- **[Catppuccin](https://github.com/catppuccin/catppuccin)** (Mocha & Latte) by [Catppuccin Org](https://github.com/catppuccin) (MIT)
+- **[Gruvbox](https://github.com/morhetz/gruvbox)** (Dark & Light) by [Pavel Pertsev (`morhetz`)](https://github.com/morhetz) (MIT/X11)
 
 ## License
 

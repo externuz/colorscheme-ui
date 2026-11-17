@@ -1,6 +1,11 @@
 import { useSyncExternalStore } from 'react';
 
-export type ThemeId = 'tokyo-night' | 'catppuccin-mocha' | 'gruvbox-dark' | 'gruvbox-light';
+export type ThemeId =
+  | 'tokyo-night'
+  | 'catppuccin-mocha'
+  | 'catppuccin-latte'
+  | 'gruvbox-dark'
+  | 'gruvbox-light';
 export type ColorSchemeId = ThemeId;
 
 export interface ThemeMeta {
@@ -34,6 +39,16 @@ export const THEMES: readonly ThemeMeta[] = [
     surfaceColor: '#242538',
     accentColor: '#cba6f7',
     secondaryColors: ['#89b4fa', '#a6e3a1', '#fab387'],
+  },
+  {
+    id: 'catppuccin-latte',
+    name: 'Catppuccin Latte',
+    subtitle: 'Crisp pastel light editor palette',
+    mode: 'light',
+    canvasColor: '#eff1f5',
+    surfaceColor: '#f7f8fb',
+    accentColor: '#8839ef',
+    secondaryColors: ['#1e66f5', '#40a02b', '#fe640b'],
   },
   {
     id: 'gruvbox-dark',
@@ -172,5 +187,5 @@ export function getThemeInitScript(
   storageKey: string = DEFAULT_STORAGE_KEY,
   defaultTheme: ThemeId = DEFAULT_THEME,
 ): string {
-  return `(function(){try{var m={'tokyo-night':{bg:'#1a1b26',s:'dark'},'catppuccin-mocha':{bg:'#1e1e2e',s:'dark'},'gruvbox-dark':{bg:'#282828',s:'dark'},'gruvbox-light':{bg:'#fbf1c7',s:'light'}};var k=localStorage.getItem(${JSON.stringify(storageKey)})||${JSON.stringify(defaultTheme)};var c=m[k]||m[${JSON.stringify(defaultTheme)}];var t=m[k]?k:${JSON.stringify(defaultTheme)};var d=document.documentElement;d.setAttribute('data-theme',t);d.style.backgroundColor=c.bg;d.style.colorScheme=c.s;var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',c.bg);}catch(_){}})();`;
+  return `(function(){try{var m={'tokyo-night':{bg:'#1a1b26',s:'dark'},'catppuccin-mocha':{bg:'#1e1e2e',s:'dark'},'catppuccin-latte':{bg:'#eff1f5',s:'light'},'gruvbox-dark':{bg:'#282828',s:'dark'},'gruvbox-light':{bg:'#fbf1c7',s:'light'}};var k=localStorage.getItem(${JSON.stringify(storageKey)})||${JSON.stringify(defaultTheme)};var c=m[k]||m[${JSON.stringify(defaultTheme)}];var t=m[k]?k:${JSON.stringify(defaultTheme)};var d=document.documentElement;d.setAttribute('data-theme',t);d.style.backgroundColor=c.bg;d.style.colorScheme=c.s;var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',c.bg);}catch(_){}})();`;
 }

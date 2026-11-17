@@ -463,8 +463,8 @@ describe('colorscheme-ui', () => {
     });
   });
 
-  it('Colorscheme store switches all 4 palettes and supports custom storageKey', () => {
-    expect(THEMES).toHaveLength(4);
+  it('Colorscheme store switches all 5 palettes and supports custom storageKey', () => {
+    expect(THEMES).toHaveLength(5);
     act(() => {
       configureColorScheme({ storageKey: 'custom_theme_key', defaultTheme: 'tokyo-night' });
     });
@@ -486,6 +486,8 @@ describe('colorscheme-ui', () => {
       expect(document.documentElement.style.colorScheme).toBe(meta.mode);
     }
 
-    expect(getThemeInitScript('custom_theme_key')).toContain('custom_theme_key');
+    const initScript = getThemeInitScript('custom_theme_key');
+    expect(initScript).toContain('custom_theme_key');
+    expect(initScript).toContain('catppuccin-latte');
   });
 });
