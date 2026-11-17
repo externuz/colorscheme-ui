@@ -1,10 +1,22 @@
 # colorscheme-ui
 
+[![npm version](https://img.shields.io/npm/v/colorscheme-ui?color=7aa2f7&labelColor=1f2335)](https://www.npmjs.com/package/colorscheme-ui)
+[![npm downloads](https://img.shields.io/npm/dm/colorscheme-ui?color=9ece6a&labelColor=1f2335)](https://www.npmjs.com/package/colorscheme-ui)
+[![CI](https://img.shields.io/github/actions/workflow/status/externuz/colorscheme-ui/ci.yml?branch=main&label=CI&color=9ece6a&labelColor=1f2335)](https://github.com/externuz/colorscheme-ui/actions/workflows/ci.yml)
+[![Storybook](https://img.shields.io/badge/Storybook-Live_Demo-bb9af7?labelColor=1f2335)](https://externuz.github.io/colorscheme-ui/)
+[![License: MIT](https://img.shields.io/npm/l/colorscheme-ui?color=e0af68&labelColor=1f2335)](./LICENSE)
+
 > `:colorscheme tokyo-night` — for your React web apps.
 
-**colorscheme-ui** is a flat, crisp, accessible React UI kit built on headless [`@base-ui/react`](https://base-ui.com) primitives, pure **CSS Modules**, and semantic CSS custom properties inspired by iconic code-editor colorschemes: **Tokyo Night**, **Catppuccin Mocha**, **Gruvbox Dark**, and **Gruvbox Light**.
+**colorscheme-ui** is a flat, crisp, accessible React UI component library built on headless [`@base-ui/react`](https://base-ui.com) primitives, pure **CSS Modules**, and semantic CSS custom properties inspired by iconic code-editor colorschemes: **Tokyo Night**, **Catppuccin Mocha**, **Gruvbox Dark**, and **Gruvbox Light**.
 
-- **Zero Tailwind, zero runtime CSS-in-JS** — tiny static CSS (~7 kB gzipped) with zero specificity wars.
+<p align="center">
+  <a href="https://externuz.github.io/colorscheme-ui/">
+    <img src="https://raw.githubusercontent.com/externuz/colorscheme-ui/main/assets/preview.svg" alt="colorscheme-ui — Tokyo Night, Catppuccin Mocha, Gruvbox Dark, and Gruvbox Light component preview" width="100%" />
+  </a>
+</p>
+
+- **Zero Tailwind, zero runtime CSS-in-JS** — tiny static CSS (~8.5 kB gzipped) with zero specificity wars.
 - **4 iconic editor colorschemes out of the box** — instant `[data-theme]` switching with zero FOUC.
 - **WAI-ARIA accessible** — focus management, keyboard navigation, and portals powered by `@base-ui/react`.
 - **Flat, terminal-crisp aesthetic** — clean 1px borders, balanced contrast, zero neon glow or heavy glassmorphism.
@@ -18,8 +30,11 @@
 # Bun
 bun add colorscheme-ui
 
-# npm / pnpm
+# npm
 npm install colorscheme-ui
+
+# pnpm / Yarn
+pnpm add colorscheme-ui
 ```
 
 Peer dependencies: `react` and `react-dom` (`^18.0.0 || ^19.0.0`).
@@ -28,13 +43,13 @@ Peer dependencies: `react` and `react-dom` (`^18.0.0 || ^19.0.0`).
 
 ## Quick Start
 
-Import the stylesheet once at your app entry point (`main.tsx` or `layout.tsx`), wrap your app in `<TooltipProvider>`, and use any component:
+Import the stylesheet once at your app entry point (`main.tsx` or `layout.tsx`), wrap your app in `<TooltipProvider>` (and optionally `<ToastProvider>`), and use any component:
 
 ```tsx
 import 'colorscheme-ui/reset.css'; // Optional minimal modern CSS reset
 import 'colorscheme-ui/styles.css'; // Semantic tokens (4 colorschemes) + component styles
 
-import { Button, Card, Field, Input, Switch, TooltipProvider, useColorScheme } from 'colorscheme-ui';
+import { Button, Card, Field, Input, TooltipProvider, useColorScheme } from 'colorscheme-ui';
 
 export function App() {
   const { theme, themes, setTheme } = useColorScheme();
@@ -125,6 +140,33 @@ If you only want the CSS variables without the React components, import `colorsc
 - **Surfaces, Feedback & Data Display**: `Card`, `Table` (`bordered` / `plain`), `Alert`, `Avatar`, `Chip`, `Skeleton`, `Separator`, `ScrollShadow`, `Spinner`
 - **Navigation, Disclosure & Overlays**: `Tabs`, `Accordion`, `Collapsible`, `Modal`, `Drawer`, `Dropdown`, `ToastProvider` + `toast`, `Tooltip` (`TooltipProvider`)
 - **Utilities**: `cn`, `useColorScheme`, `configureColorScheme`, `applyThemeToDom`, `getThemeInitScript`, `THEMES`
+
+### API Patterns & Customization
+
+Multi-part components follow a consistent compound API (`Card.*`, `Field.*`, `Select.*`, `Tabs.*`, `Accordion.*`, `Collapsible.*`, `Modal.*`, `Drawer.*`, `Dropdown.*`, `Table.*`) while forwarding underlying `@base-ui/react` props, `className`, and `style`:
+
+```tsx
+import { Field, Select, ToastProvider, toast } from 'colorscheme-ui';
+
+<ToastProvider position="bottom-right">
+  <Field.Root>
+    <Field.Label>Runtime</Field.Label>
+    <Select.Root defaultValue="bun" onValueChange={(v) => toast.success(`Switched to ${v}`)}>
+      <Select.Trigger placeholder="Select runtime..." />
+      <Select.Content>
+        <Select.Item value="bun" description="All-in-one JavaScript toolkit">
+          Bun
+        </Select.Item>
+        <Select.Item value="node" description="LTS server runtime">
+          Node.js
+        </Select.Item>
+      </Select.Content>
+    </Select.Root>
+  </Field.Root>
+</ToastProvider>
+```
+
+Need a custom theme or slight tweak? Override any CSS custom property on `:root` or define your own `[data-theme="..."]` selector — all components adapt automatically with zero JS overhead.
 
 ---
 

@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" fill="none" role="img" aria-label="colorscheme-ui — 4 built-in editor colorschemes preview">
+  <defs>
+    <clipPath id="frame-clip">
+      <rect width="960" height="540" rx="14" />
+    </clipPath>
+    <style>
+      .sans { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      .mono { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame-clip)">
+    <!-- ===================================================================
+         1. TOKYO NIGHT (Top-Left: 0, 0)
+         =================================================================== -->
+    <g transform="translate(0, 0)">
+      <rect width="480" height="270" fill="#1a1b26" />
+      <rect x="20" y="20" width="440" height="228" rx="14" fill="#1f2335" stroke="#3b4261" stroke-width="1" />
+
+      <!-- Header -->
+      <text x="40" y="55" class="mono" font-size="13" font-weight="600">
+        <tspan fill="#565f89">:colorscheme </tspan><tspan fill="#c0caf5">tokyo-night</tspan>
+      </text>
+      <rect x="322" y="39" width="118" height="22" rx="6" fill="#7aa2f7" fill-opacity="0.14" stroke="#7aa2f7" stroke-opacity="0.34" stroke-width="1" />
+      <text x="381" y="54" text-anchor="middle" class="mono" font-size="11" font-weight="600" fill="#7aa2f7">Dark · #7aa2f7</text>
+
+      <!-- Input + Switch -->
+      <rect x="40" y="80" width="258" height="34" rx="8" fill="#16161e" stroke="#7aa2f7" stroke-width="1" />
+      <text x="52" y="101" class="mono" font-size="11.5">
+        <tspan fill="#7aa2f7">&gt; </tspan><tspan fill="#c0caf5">colorscheme-ui/styles.css</tspan>
+      </text>
+
+      <rect x="314" y="86" width="38" height="22" rx="11" fill="#7aa2f7" />
+      <circle cx="341" cy="97" r="8" fill="#15161e" />
+      <text x="360" y="101" class="sans" font-size="12" font-weight="500" fill="#c0caf5">Zero-FOUC</text>
+
+      <!-- Swatches + Semantic Chips -->
+      <g transform="translate(40, 134)">
+        <rect x="0" y="1" width="18" height="18" rx="4" fill="#7aa2f7" stroke="#3b4261" stroke-width="1" />
+        <rect x="24" y="1" width="18" height="18" rx="4" fill="#bb9af7" stroke="#3b4261" stroke-width="1" />
+        <rect x="48" y="1" width="18" height="18" rx="4" fill="#7dcfff" stroke="#3b4261" stroke-width="1" />
+        <rect x="72" y="1" width="18" height="18" rx="4" fill="#9ece6a" stroke="#3b4261" stroke-width="1" />
+        <rect x="96" y="1" width="18" height="18" rx="4" fill="#e0af68" stroke="#3b4261" stroke-width="1" />
+        <rect x="120" y="1" width="18" height="18" rx="4" fill="#ff9e64" stroke="#3b4261" stroke-width="1" />
+        <rect x="144" y="1" width="18" height="18" rx="4" fill="#f7768e" stroke="#3b4261" stroke-width="1" />
+      </g>
+      <rect x="272" y="134" width="76" height="20" rx="5" fill="#9ece6a" fill-opacity="0.12" stroke="#9ece6a" stroke-opacity="0.28" stroke-width="1" />
+      <text x="310" y="148" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#9ece6a">WAI-ARIA</text>
+      <rect x="354" y="134" width="86" height="20" rx="5" fill="#bb9af7" fill-opacity="0.12" stroke="#bb9af7" stroke-opacity="0.28" stroke-width="1" />
+      <text x="397" y="148" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#bb9af7">CSS Modules</text>
+
+      <!-- Separator + Footer -->
+      <line x1="40" y1="176" x2="440" y2="176" stroke="#292e42" stroke-width="1" />
+      <text x="40" y="215" class="mono" font-size="11" fill="#a9b1d6">29 accessible components</text>
+      <rect x="268" y="196" width="80" height="30" rx="6" fill="#24283b" stroke="#3b4261" stroke-width="1" />
+      <text x="308" y="215" text-anchor="middle" class="sans" font-size="12" font-weight="500" fill="#c0caf5">Preview</text>
+      <rect x="356" y="196" width="84" height="30" rx="6" fill="#7aa2f7" />
+      <text x="398" y="215" text-anchor="middle" class="sans" font-size="12" font-weight="600" fill="#15161e">Active</text>
+    </g>
+
+    <!-- ===================================================================
+         2. CATPPUCCIN MOCHA (Top-Right: 480, 0)
+         =================================================================== -->
+    <g transform="translate(480, 0)">
+      <rect width="480" height="270" fill="#1e1e2e" />
+      <rect x="20" y="20" width="440" height="228" rx="14" fill="#242538" stroke="#45475a" stroke-width="1" />
+
+      <!-- Header -->
+      <text x="40" y="55" class="mono" font-size="13" font-weight="600">
+        <tspan fill="#6c7086">:colorscheme </tspan><tspan fill="#cdd6f4">catppuccin-mocha</tspan>
+      </text>
+      <rect x="322" y="39" width="118" height="22" rx="6" fill="#cba6f7" fill-opacity="0.14" stroke="#cba6f7" stroke-opacity="0.34" stroke-width="1" />
+      <text x="381" y="54" text-anchor="middle" class="mono" font-size="11" font-weight="600" fill="#cba6f7">Dark · #cba6f7</text>
+
+      <!-- Input + Switch -->
+      <rect x="40" y="80" width="258" height="34" rx="8" fill="#181825" stroke="#45475a" stroke-width="1" />
+      <text x="52" y="101" class="mono" font-size="11.5">
+        <tspan fill="#cba6f7">&gt; </tspan><tspan fill="#cdd6f4">useColorScheme() // hook</tspan>
+      </text>
+
+      <rect x="314" y="86" width="38" height="22" rx="11" fill="#cba6f7" />
+      <circle cx="341" cy="97" r="8" fill="#11111b" />
+      <text x="360" y="101" class="sans" font-size="12" font-weight="500" fill="#cdd6f4">Synced</text>
+
+      <!-- Swatches + Semantic Chips -->
+      <g transform="translate(40, 134)">
+        <rect x="0" y="1" width="18" height="18" rx="4" fill="#89b4fa" stroke="#45475a" stroke-width="1" />
+        <rect x="24" y="1" width="18" height="18" rx="4" fill="#cba6f7" stroke="#45475a" stroke-width="1" />
+        <rect x="48" y="1" width="18" height="18" rx="4" fill="#89dceb" stroke="#45475a" stroke-width="1" />
+        <rect x="72" y="1" width="18" height="18" rx="4" fill="#a6e3a1" stroke="#45475a" stroke-width="1" />
+        <rect x="96" y="1" width="18" height="18" rx="4" fill="#f9e2af" stroke="#45475a" stroke-width="1" />
+        <rect x="120" y="1" width="18" height="18" rx="4" fill="#fab387" stroke="#45475a" stroke-width="1" />
+        <rect x="144" y="1" width="18" height="18" rx="4" fill="#f38ba8" stroke="#45475a" stroke-width="1" />
+      </g>
+      <rect x="272" y="134" width="76" height="20" rx="5" fill="#89dceb" fill-opacity="0.12" stroke="#89dceb" stroke-opacity="0.28" stroke-width="1" />
+      <text x="310" y="148" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#89dceb">Base UI</text>
+      <rect x="354" y="134" width="86" height="20" rx="5" fill="#f9e2af" fill-opacity="0.12" stroke="#f9e2af" stroke-opacity="0.28" stroke-width="1" />
+      <text x="397" y="148" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#f9e2af">TypeScript</text>
+
+      <!-- Separator + Footer -->
+      <line x1="40" y1="176" x2="440" y2="176" stroke="#313244" stroke-width="1" />
+      <text x="40" y="215" class="mono" font-size="11" fill="#bac2de">Built on @base-ui/react</text>
+      <rect x="268" y="196" width="80" height="30" rx="6" fill="#313244" stroke="#45475a" stroke-width="1" />
+      <text x="308" y="215" text-anchor="middle" class="sans" font-size="12" font-weight="500" fill="#cdd6f4">Tokens</text>
+      <rect x="356" y="196" width="84" height="30" rx="6" fill="#cba6f7" />
+      <text x="398" y="215" text-anchor="middle" class="sans" font-size="12" font-weight="600" fill="#11111b">Apply</text>
+    </g>
+
+    <!-- ===================================================================
+         3. GRUVBOX DARK (Bottom-Left: 0, 270)
+         =================================================================== -->
+    <g transform="translate(0, 270)">
+      <rect width="480" height="270" fill="#282828" />
+      <rect x="20" y="20" width="440" height="228" rx="14" fill="#32302f" stroke="#504945" stroke-width="1" />
+
+      <!-- Header -->
+      <text x="40" y="55" class="mono" font-size="13" font-weight="600">
+        <tspan fill="#928374">:colorscheme </tspan><tspan fill="#ebdbb2">gruvbox-dark</tspan>
+      </text>
+      <rect x="322" y="39" width="118" height="22" rx="6" fill="#fe8019" fill-opacity="0.14" stroke="#fe8019" stroke-opacity="0.34" stroke-width="1" />
+      <text x="381" y="54" text-anchor="middle" class="mono" font-size="11" font-weight="600" fill="#fe8019">Dark · #fe8019</text>
+
+      <!-- Input + Switch -->
+      <rect x="40" y="80" width="258" height="34" rx="8" fill="#1d2021" stroke="#504945" stroke-width="1" />
+      <text x="52" y="101" class="mono" font-size="11.5">
+        <tspan fill="#fe8019">&gt; </tspan><tspan fill="#ebdbb2">&lt;Card.Root padding="lg"&gt;</tspan>
+      </text>
+
+      <rect x="314" y="86" width="38" height="22" rx="11" fill="#fe8019" />
+      <circle cx="341" cy="97" r="8" fill="#1d2021" />
+      <text x="360" y="101" class="sans" font-size="12" font-weight="500" fill="#ebdbb2">1px Crisp</text>
+
+      <!-- Swatches + Semantic Chips -->
+      <g transform="translate(40, 134)">
+        <rect x="0" y="1" width="18" height="18" rx="4" fill="#83a598" stroke="#504945" stroke-width="1" />
+        <rect x="24" y="1" width="18" height="18" rx="4" fill="#d3869b" stroke="#504945" stroke-width="1" />
+        <rect x="48" y="1" width="18" height="18" rx="4" fill="#8ec07c" stroke="#504945" stroke-width="1" />
+        <rect x="72" y="1" width="18" height="18" rx="4" fill="#b8bb26" stroke="#504945" stroke-width="1" />
+        <rect x="96" y="1" width="18" height="18" rx="4" fill="#fabd2f" stroke="#504945" stroke-width="1" />
+        <rect x="120" y="1" width="18" height="18" rx="4" fill="#fe8019" stroke="#504945" stroke-width="1" />
+        <rect x="144" y="1" width="18" height="18" rx="4" fill="#fb4934" stroke="#504945" stroke-width="1" />
+      </g>
+      <rect x="272" y="134" width="76" height="20" rx="5" fill="#b8bb26" fill-opacity="0.14" stroke="#b8bb26" stroke-opacity="0.3" stroke-width="1" />
+      <text x="310" y="148" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#b8bb26">Compound</text>
+      <rect x="354" y="134" width="86" height="20" rx="5" fill="#83a598" fill-opacity="0.14" stroke="#83a598" stroke-opacity="0.3" stroke-width="1" />
+      <text x="397" y="148" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#83a598">Tree-shake</text>
+
+      <!-- Separator + Footer -->
+      <line x1="40" y1="176" x2="440" y2="176" stroke="#3c3836" stroke-width="1" />
+      <text x="40" y="215" class="mono" font-size="11" fill="#d5c4a1">Pure CSS · ~8.5 kB gzipped</text>
+      <rect x="268" y="196" width="80" height="30" rx="6" fill="#3c3836" stroke="#504945" stroke-width="1" />
+      <text x="308" y="215" text-anchor="middle" class="sans" font-size="12" font-weight="500" fill="#ebdbb2">Inspect</text>
+      <rect x="356" y="196" width="84" height="30" rx="6" fill="#fe8019" />
+      <text x="398" y="215" text-anchor="middle" class="sans" font-size="12" font-weight="600" fill="#1d2021">Apply</text>
+    </g>
+
+    <!-- ===================================================================
+         4. GRUVBOX LIGHT (Bottom-Right: 480, 270)
+         =================================================================== -->
+    <g transform="translate(480, 270)">
+      <rect width="480" height="270" fill="#fbf1c7" />
+      <rect x="20" y="20" width="440" height="228" rx="14" fill="#f9f5d7" stroke="#d5c4a1" stroke-width="1" />
+
+      <!-- Header -->
+      <text x="40" y="55" class="mono" font-size="13" font-weight="600">
+        <tspan fill="#7c6f64">:colorscheme </tspan><tspan fill="#3c3836">gruvbox-light</tspan>
+      </text>
+      <rect x="322" y="39" width="118" height="22" rx="6" fill="#d65d0e" fill-opacity="0.11" stroke="#d65d0e" stroke-opacity="0.28" stroke-width="1" />
+      <text x="381" y="54" text-anchor="middle" class="mono" font-size="11" font-weight="600" fill="#d65d0e">Light · #d65d0e</text>
+
+      <!-- Input + Switch -->
+      <rect x="40" y="80" width="258" height="34" rx="8" fill="#fcf8e3" stroke="#d5c4a1" stroke-width="1" />
+      <text x="52" y="101" class="mono" font-size="11.5">
+        <tspan fill="#d65d0e">&gt; </tspan><tspan fill="#3c3836">getThemeInitScript()</tspan>
+      </text>
+
+      <rect x="314" y="86" width="38" height="22" rx="11" fill="#d65d0e" />
+      <circle cx="341" cy="97" r="8" fill="#fbf1c7" />
+      <text x="360" y="101" class="sans" font-size="12" font-weight="500" fill="#3c3836">SSR Ready</text>
+
+      <!-- Swatches + Semantic Chips -->
+      <g transform="translate(40, 134)">
+        <rect x="0" y="1" width="18" height="18" rx="4" fill="#076678" stroke="#d5c4a1" stroke-width="1" />
+        <rect x="24" y="1" width="18" height="18" rx="4" fill="#8f3f71" stroke="#d5c4a1" stroke-width="1" />
+        <rect x="48" y="1" width="18" height="18" rx="4" fill="#427b58" stroke="#d5c4a1" stroke-width="1" />
+        <rect x="72" y="1" width="18" height="18" rx="4" fill="#79740e" stroke="#d5c4a1" stroke-width="1" />
+        <rect x="96" y="1" width="18" height="18" rx="4" fill="#b57614" stroke="#d5c4a1" stroke-width="1" />
+        <rect x="120" y="1" width="18" height="18" rx="4" fill="#af3a03" stroke="#d5c4a1" stroke-width="1" />
+        <rect x="144" y="1" width="18" height="18" rx="4" fill="#9d0006" stroke="#d5c4a1" stroke-width="1" />
+      </g>
+      <rect x="272" y="134" width="76" height="20" rx="5" fill="#427b58" fill-opacity="0.1" stroke="#427b58" stroke-opacity="0.25" stroke-width="1" />
+      <text x="310" y="148" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#427b58">React 19</text>
+      <rect x="354" y="134" width="86" height="20" rx="5" fill="#8f3f71" fill-opacity="0.1" stroke="#8f3f71" stroke-opacity="0.25" stroke-width="1" />
+      <text x="397" y="148" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#8f3f71">Zero Runtime</text>
+
+      <!-- Separator + Footer -->
+      <line x1="40" y1="176" x2="440" y2="176" stroke="#e3d5ad" stroke-width="1" />
+      <text x="40" y="215" class="mono" font-size="11" fill="#504945">No Tailwind · No CSS-in-JS</text>
+      <rect x="268" y="196" width="80" height="30" rx="6" fill="#fcf8e3" stroke="#d5c4a1" stroke-width="1" />
+      <text x="308" y="215" text-anchor="middle" class="sans" font-size="12" font-weight="500" fill="#3c3836">Storybook</text>
+      <rect x="356" y="196" width="84" height="30" rx="6" fill="#d65d0e" />
+      <text x="398" y="215" text-anchor="middle" class="sans" font-size="12" font-weight="600" fill="#fbf1c7">Apply</text>
+    </g>
+
+    <!-- Crisp 1px quadrant dividers & outer border -->
+    <line x1="480" y1="0" x2="480" y2="540" stroke="#3b4261" stroke-opacity="0.55" stroke-width="1" />
+    <line x1="0" y1="270" x2="960" y2="270" stroke="#3b4261" stroke-opacity="0.55" stroke-width="1" />
+    <rect x="0.5" y="0.5" width="959" height="539" rx="13.5" stroke="#3b4261" stroke-opacity="0.7" stroke-width="1" />
+  </g>
+</svg>
