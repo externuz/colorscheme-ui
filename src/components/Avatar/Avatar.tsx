@@ -16,6 +16,7 @@ export type AvatarColor =
 
 export type AvatarSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type AvatarShape = 'circle' | 'rounded';
+export type AvatarLoading = 'eager' | 'lazy';
 
 const AUTO_PALETTE: Exclude<AvatarColor, 'auto' | 'neutral' | 'accent' | 'red'>[] = [
   'blue',
@@ -56,6 +57,7 @@ export interface AvatarProps extends Omit<ComponentPropsWithRef<'span'>, 'color'
   color?: AvatarColor;
   size?: AvatarSize;
   shape?: AvatarShape;
+  loading?: AvatarLoading;
 }
 
 export function Avatar({
@@ -67,6 +69,7 @@ export function Avatar({
   color = 'auto',
   size = 'md',
   shape = 'circle',
+  loading,
   className = '',
   ...rest
 }: AvatarProps) {
@@ -80,8 +83,16 @@ export function Avatar({
 
   return (
     <BaseAvatar.Root className={rootClasses} data-palette={resolvedColor} {...rest}>
-      {src ? <BaseAvatar.Image src={src} alt={alt ?? name ?? ''} className={styles.image} /> : null}
       <BaseAvatar.Fallback className={styles.fallback}>{resolvedFallback}</BaseAvatar.Fallback>
+      {src ? (
+        <BaseAvatar.Image
+          keepMounted={loading !== undefined}
+          src={src}
+          alt={alt ?? name ?? ''}
+          loading={loading}
+          className={styles.image}
+        />
+      ) : null}
     </BaseAvatar.Root>
   );
 }

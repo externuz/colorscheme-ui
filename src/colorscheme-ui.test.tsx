@@ -366,6 +366,87 @@ describe('colorscheme-ui', () => {
     expect(screen.getByRole('table')).toBeInTheDocument();
   });
 
+  it('Avatar forwards loading prop to inner img element, not root, and preserves default behavior when omitted', () => {
+    const OriginalImage = window.Image;
+    const createdPreloadImages: HTMLImageElement[] = [];
+
+    class MockPreloadImage extends OriginalImage {
+      constructor(width?: number, height?: number) {
+        super(width, height);
+        createdPreloadImages.push(this);
+      }
+    }
+
+    window.Image = MockPreloadImage;
+
+    try {
+      render(
+        <div>
+          <Avatar
+            src="https://example.com/ada.png"
+            name="Ada Lovelace"
+            loading="lazy"
+            data-testid="avatar-lazy"
+          />
+          <Avatar
+            src="https://example.com/linus.png"
+            name="Linus Torvalds"
+            loading="eager"
+            data-testid="avatar-eager"
+          />
+          <Avatar name="Grace Hopper" loading="lazy" data-testid="avatar-no-src" />
+        </div>,
+      );
+
+      const lazyRoot = screen.getByTestId('avatar-lazy');
+      const lazyImg = lazyRoot.querySelector('img');
+      expect(lazyRoot).not.toHaveAttribute('loading');
+      expect(lazyImg).not.toBeNull();
+      expect(lazyImg).toHaveAttribute('loading', 'lazy');
+      expect(lazyImg).toHaveAttribute('src', 'https://example.com/ada.png');
+      expect(lazyImg).toHaveAttribute('alt', 'Ada Lovelace');
+
+      const eagerRoot = screen.getByTestId('avatar-eager');
+      const eagerImg = eagerRoot.querySelector('img');
+      expect(eagerRoot).not.toHaveAttribute('loading');
+      expect(eagerImg).not.toBeNull();
+      expect(eagerImg).toHaveAttribute('loading', 'eager');
+
+      const noSrcRoot = screen.getByTestId('avatar-no-src');
+      expect(noSrcRoot).not.toHaveAttribute('loading');
+      expect(noSrcRoot.querySelector('img')).toBeNull();
+      expect(noSrcRoot).toHaveTextContent('GH');
+
+      // Neither lazy nor eager avatar should trigger JS `new window.Image()` preloading
+      expect(createdPreloadImages).toHaveLength(0);
+
+      // Omitting `loading` preserves default preload behavior and omits `loading` attribute on <img>
+      render(
+        <Avatar
+          src="https://example.com/ken.png"
+          name="Ken Thompson"
+          data-testid="avatar-default"
+        />,
+      );
+
+      const defaultRoot = screen.getByTestId('avatar-default');
+      expect(defaultRoot).not.toHaveAttribute('loading');
+      expect(defaultRoot).toHaveTextContent('KT');
+      expect(createdPreloadImages).toHaveLength(1);
+
+      act(() => {
+        createdPreloadImages[0].onload?.(new Event('load'));
+      });
+
+      const defaultImg = defaultRoot.querySelector('img');
+      expect(defaultImg).not.toBeNull();
+      expect(defaultImg).not.toHaveAttribute('loading');
+      expect(defaultImg).toHaveAttribute('src', 'https://example.com/ken.png');
+    } finally {
+      window.Image = OriginalImage;
+    }
+  });
+
   it('ToastProvider + imperative toast render and dismiss notifications', () => {
     render(<ToastProvider position="bottom-right" />);
 

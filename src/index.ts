@@ -13,6 +13,7 @@ export { Alert, type AlertProps, type AlertVariant } from './components/Alert/Al
 export {
   Avatar,
   type AvatarColor,
+  type AvatarLoading,
   type AvatarProps,
   type AvatarShape,
   type AvatarSize,
