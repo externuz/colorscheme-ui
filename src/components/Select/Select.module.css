@@ -12,6 +12,7 @@
   font-weight: 500;
   text-align: left;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
   outline: none;
   transition:
@@ -19,8 +20,10 @@
     background-color var(--transition-fast);
 }
 
-.trigger:hover:not([data-disabled]) {
-  border-color: var(--border-strong);
+@media (hover: hover) {
+  .trigger:hover:not([data-disabled]) {
+    border-color: var(--border-strong);
+  }
 }
 
 .trigger:focus-visible,
@@ -148,6 +151,7 @@
   font-weight: 500;
   color: var(--text-secondary);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
   outline: none;
   transition:

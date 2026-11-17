@@ -44,6 +44,7 @@
   font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   outline: none;
   user-select: none;
   transition:
@@ -61,8 +62,10 @@
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
 }
 
-.tab:hover:not([data-disabled]):not([data-active]) {
-  color: var(--text-primary);
+@media (hover: hover) {
+  .tab:hover:not([data-disabled]):not([data-active]) {
+    color: var(--text-primary);
+  }
 }
 
 .tab[data-active] {

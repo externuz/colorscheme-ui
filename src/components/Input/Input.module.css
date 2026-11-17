@@ -16,9 +16,11 @@
   color: var(--text-muted);
 }
 
-.inputOnly:hover:not(:disabled),
-.group:hover:not(.disabled) {
-  border-color: var(--border-strong);
+@media (hover: hover) {
+  .inputOnly:hover:not(:disabled),
+  .group:hover:not(.disabled) {
+    border-color: var(--border-strong);
+  }
 }
 
 .inputOnly:focus,

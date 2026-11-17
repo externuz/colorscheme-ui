@@ -9,6 +9,7 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
 
@@ -28,13 +29,16 @@
   justify-content: center;
   flex-shrink: 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast);
 }
 
-.box:hover:not([data-disabled]) {
-  border-color: var(--accent-primary);
+@media (hover: hover) {
+  .box:hover:not([data-disabled]) {
+    border-color: var(--accent-primary);
+  }
 }
 
 .box:focus-visible {

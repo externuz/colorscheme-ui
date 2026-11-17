@@ -59,12 +59,15 @@
   font-weight: 600;
   text-align: left;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   outline: none;
   transition: background-color var(--transition-fast);
 }
 
-.trigger:hover:not([data-disabled]) {
-  background-color: var(--bg-hover);
+@media (hover: hover) {
+  .trigger:hover:not([data-disabled]) {
+    background-color: var(--bg-hover);
+  }
 }
 
 .trigger:focus-visible {

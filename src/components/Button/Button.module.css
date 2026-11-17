@@ -10,6 +10,7 @@
   border: 1px solid transparent;
   border-radius: var(--radius-md);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
   text-decoration: none;
   transition:
@@ -83,20 +84,10 @@
   font-weight: 600;
 }
 
-.primary:hover:not(:disabled) {
-  background-color: var(--accent-primary-hover);
-  border-color: var(--accent-primary-hover);
-}
-
 .secondary {
   background-color: var(--bg-surface);
   color: var(--text-primary);
   border-color: var(--border-default);
-}
-
-.secondary:hover:not(:disabled) {
-  background-color: var(--bg-hover);
-  border-color: var(--border-strong);
 }
 
 .subtle {
@@ -105,20 +96,10 @@
   border-color: var(--accent-border);
 }
 
-.subtle:hover:not(:disabled) {
-  background-color: var(--bg-hover);
-  border-color: var(--accent-primary);
-}
-
 .ghost {
   background-color: transparent;
   color: var(--text-secondary);
   border-color: transparent;
-}
-
-.ghost:hover:not(:disabled) {
-  background-color: var(--bg-hover);
-  color: var(--text-primary);
 }
 
 .danger {
@@ -127,8 +108,30 @@
   border-color: var(--status-danger-border);
 }
 
-.danger:hover:not(:disabled) {
-  background-color: var(--status-danger);
-  color: var(--text-on-accent);
-  border-color: var(--status-danger);
+@media (hover: hover) {
+  .primary:hover:not(:disabled) {
+    background-color: var(--accent-primary-hover);
+    border-color: var(--accent-primary-hover);
+  }
+
+  .secondary:hover:not(:disabled) {
+    background-color: var(--bg-hover);
+    border-color: var(--border-strong);
+  }
+
+  .subtle:hover:not(:disabled) {
+    background-color: var(--bg-hover);
+    border-color: var(--accent-primary);
+  }
+
+  .ghost:hover:not(:disabled) {
+    background-color: var(--bg-hover);
+    color: var(--text-primary);
+  }
+
+  .danger:hover:not(:disabled) {
+    background-color: var(--status-danger);
+    color: var(--text-on-accent);
+    border-color: var(--status-danger);
+  }
 }

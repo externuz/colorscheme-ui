@@ -52,8 +52,10 @@
   border-bottom: none;
 }
 
-.tbody .tr:hover {
-  background-color: var(--bg-hover);
+@media (hover: hover) {
+  .tbody .tr:hover {
+    background-color: var(--bg-hover);
+  }
 }
 
 .td {

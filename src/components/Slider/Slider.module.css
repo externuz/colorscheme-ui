@@ -15,6 +15,7 @@
   width: 100%;
   padding: 8px 0;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .track {
@@ -42,8 +43,10 @@
   transition: transform var(--transition-fast);
 }
 
-.thumb:hover {
-  transform: scale(1.1);
+@media (hover: hover) {
+  .thumb:hover {
+    transform: scale(1.1);
+  }
 }
 
 .thumb:focus-visible {

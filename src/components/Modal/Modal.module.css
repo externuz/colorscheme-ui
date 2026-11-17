@@ -119,15 +119,18 @@
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast);
 }
 
-.closeBtn:hover {
-  background-color: var(--bg-hover);
-  color: var(--text-primary);
+@media (hover: hover) {
+  .closeBtn:hover {
+    background-color: var(--bg-hover);
+    color: var(--text-primary);
+  }
 }
 
 .closeBtn:focus-visible {

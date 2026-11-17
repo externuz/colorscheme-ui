@@ -17,8 +17,10 @@
   color: var(--text-muted);
 }
 
-.textarea:hover:not(:disabled) {
-  border-color: var(--border-strong);
+@media (hover: hover) {
+  .textarea:hover:not(:disabled) {
+    border-color: var(--border-strong);
+  }
 }
 
 .textarea:focus {

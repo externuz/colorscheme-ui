@@ -9,6 +9,7 @@
   background-color: var(--bg-sunken);
   border: 1px solid var(--border-subtle);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   user-select: none;
   text-align: left;
   transition:
@@ -16,9 +17,11 @@
     border-color var(--transition-fast);
 }
 
-.card:hover:not(.cardDisabled):not(:has([data-disabled])) {
-  border-color: var(--border-default);
-  background-color: var(--bg-hover);
+@media (hover: hover) {
+  .card:hover:not(.cardDisabled):not(:has([data-disabled])) {
+    border-color: var(--border-default);
+    background-color: var(--bg-hover);
+  }
 }
 
 .card:has(:focus-visible) {

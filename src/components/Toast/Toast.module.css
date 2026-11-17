@@ -167,14 +167,17 @@
   font-size: 11.5px;
   font-weight: 500;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast);
 }
 
-.actionBtn:hover {
-  background-color: var(--bg-hover);
-  border-color: var(--border-strong);
+@media (hover: hover) {
+  .actionBtn:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--border-strong);
+  }
 }
 
 .closeBtn {
@@ -191,14 +194,17 @@
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   transition:
     color var(--transition-fast),
     background-color var(--transition-fast);
 }
 
-.closeBtn:hover {
-  color: var(--text-primary);
-  background-color: var(--bg-hover);
+@media (hover: hover) {
+  .closeBtn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-hover);
+  }
 }
 
 .closeBtn:focus-visible {
