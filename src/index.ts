@@ -38,6 +38,11 @@ export {
 export { Drawer, type DrawerSide } from './components/Drawer/Drawer';
 export { Dropdown } from './components/Dropdown/Dropdown';
 export { Field, type FieldRootProps } from './components/Field/Field';
+export {
+  Fieldset,
+  type FieldsetPadding,
+  type FieldsetRootProps,
+} from './components/Fieldset/Fieldset';
 export { Input, type InputProps } from './components/Input/Input';
 export { Modal, type ModalSize } from './components/Modal/Modal';
 export { Radio, RadioGroup, type RadioGroupProps, type RadioProps } from './components/Radio/Radio';

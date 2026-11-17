@@ -86,3 +86,39 @@ export const PlainInsideCard: Story = {
     </Card.Root>
   ),
 };
+
+export const FlushInsideCard: Story = {
+  render: () => (
+    <Card.Root padding="none" style={{ minWidth: '440px' }}>
+      <Table.Root variant="plain">
+        <Table.Header>
+          <Table.Row>
+            <Table.Column>Process</Table.Column>
+            <Table.Column>PID</Table.Column>
+            <Table.Column>State</Table.Column>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>nvim --headless</Table.Cell>
+            <Table.Cell style={{ fontFamily: 'var(--font-mono)' }}>41208</Table.Cell>
+            <Table.Cell>
+              <Chip color="cyan" size="sm">
+                Attached
+              </Chip>
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>rust-analyzer</Table.Cell>
+            <Table.Cell style={{ fontFamily: 'var(--font-mono)' }}>41294</Table.Cell>
+            <Table.Cell>
+              <Chip color="green" size="sm">
+                Indexing
+              </Chip>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table.Root>
+    </Card.Root>
+  ),
+};

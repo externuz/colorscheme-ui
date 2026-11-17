@@ -4,16 +4,24 @@ import styles from './Card.module.css';
 export interface CardRootProps extends ComponentPropsWithRef<'div'> {
   variant?: 'default' | 'sunken' | 'elevated';
   padding?: 'none' | 'sm' | 'md' | 'lg';
+  bordered?: boolean;
 }
 
 function Root({
   variant = 'default',
   padding = 'md',
+  bordered = true,
   className = '',
   children,
   ...rest
 }: CardRootProps) {
-  const classes = [styles.root, styles[variant], styles[`pad-${padding}`], className]
+  const classes = [
+    styles.root,
+    styles[variant],
+    styles[`pad-${padding}`],
+    !bordered && styles.borderless,
+    className,
+  ]
     .filter(Boolean)
     .join(' ');
   return (

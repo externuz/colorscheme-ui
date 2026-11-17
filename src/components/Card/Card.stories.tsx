@@ -35,3 +35,13 @@ export const Default: Story = {
     </Card.Root>
   ),
 };
+
+export const Borderless: Story = {
+  render: () => (
+    <Card.Root variant="sunken" bordered={false} padding="sm" style={{ width: '360px' }}>
+      <span style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
+        Subtle rounded surface without a border for inline notes or callouts.
+      </span>
+    </Card.Root>
+  ),
+};

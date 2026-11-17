@@ -16,13 +16,6 @@
   color: var(--text-muted);
 }
 
-@media (hover: hover) {
-  .inputOnly:hover:not(:disabled),
-  .group:hover:not(.disabled) {
-    border-color: var(--border-strong);
-  }
-}
-
 .inputOnly:focus,
 .group:focus-within {
   border-color: var(--border-focus);

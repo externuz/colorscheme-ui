@@ -20,12 +20,6 @@
     background-color var(--transition-fast);
 }
 
-@media (hover: hover) {
-  .trigger:hover:not([data-disabled]) {
-    border-color: var(--border-strong);
-  }
-}
-
 .trigger:focus-visible,
 .trigger[data-popup-open] {
   border-color: var(--border-focus);
@@ -36,7 +30,7 @@
   cursor: not-allowed;
 }
 
-.invalid {
+.trigger.invalid {
   border-color: var(--status-danger);
 }
 

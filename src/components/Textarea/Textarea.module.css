@@ -17,12 +17,6 @@
   color: var(--text-muted);
 }
 
-@media (hover: hover) {
-  .textarea:hover:not(:disabled) {
-    border-color: var(--border-strong);
-  }
-}
-
 .textarea:focus {
   border-color: var(--border-focus);
 }

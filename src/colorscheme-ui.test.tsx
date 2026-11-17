@@ -15,6 +15,7 @@ import {
   Drawer,
   Dropdown,
   Field,
+  Fieldset,
   getAvatarInitials,
   getThemeInitScript,
   Input,
@@ -364,6 +365,19 @@ describe('colorscheme-ui', () => {
     expect(screen.getByTestId('skeleton-bar')).toHaveStyle({ width: '120px', height: '14px' });
     expect(screen.getByRole('status', { name: 'Loading' })).toBeInTheDocument();
     expect(screen.getByRole('table')).toBeInTheDocument();
+  });
+
+  it('Fieldset renders semantic fieldset and legend with disabled state', () => {
+    render(
+      <Fieldset.Root disabled>
+        <Fieldset.Legend>Cluster Settings</Fieldset.Legend>
+        <Input defaultValue="node-1" />
+      </Fieldset.Root>,
+    );
+
+    const group = screen.getByRole('group', { name: 'Cluster Settings' });
+    expect(group).toBeDisabled();
+    expect(screen.getByText('Cluster Settings').tagName).toBe('LEGEND');
   });
 
   it('Avatar forwards loading prop to inner img element, not root, and preserves default behavior when omitted', () => {

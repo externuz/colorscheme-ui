@@ -136,7 +136,7 @@ If you only want the CSS variables without the React components, import `colorsc
 
 ## Included Components (29)
 
-- **Atomic Form Controls**: `Button`, `Input`, `Textarea`, `Select`, `Field`, `Checkbox`, `Switch`, `RadioGroup` + `Radio`, `Slider`, `ToggleGroup`
+- **Atomic Form Controls**: `Button`, `Input`, `Textarea`, `Select`, `Field`, `Fieldset`, `Checkbox`, `Switch`, `RadioGroup` + `Radio`, `Slider`, `ToggleGroup`
 - **Choice Cards**: `SwitchCard`, `CheckboxCard`, `RadioCard`
 - **Surfaces, Feedback & Data Display**: `Card`, `Table` (`bordered` / `plain`), `Alert`, `Avatar`, `Chip`, `Skeleton`, `Separator`, `ScrollShadow`, `Spinner`
 - **Navigation, Disclosure & Overlays**: `Tabs`, `Accordion`, `Collapsible`, `Modal`, `Drawer`, `Dropdown`, `ToastProvider` + `toast`, `Tooltip` (`TooltipProvider`)
@@ -144,7 +144,7 @@ If you only want the CSS variables without the React components, import `colorsc
 
 ### API Patterns & Customization
 
-Multi-part components follow a consistent compound API (`Card.*`, `Field.*`, `Select.*`, `Tabs.*`, `Accordion.*`, `Collapsible.*`, `Modal.*`, `Drawer.*`, `Dropdown.*`, `Table.*`) while forwarding underlying `@base-ui/react` props, `className`, and `style`:
+Multi-part components follow a consistent compound API (`Card.*`, `Field.*`, `Fieldset.*`, `Select.*`, `Tabs.*`, `Accordion.*`, `Collapsible.*`, `Modal.*`, `Drawer.*`, `Dropdown.*`, `Table.*`) while forwarding underlying `@base-ui/react` props, `className`, and `style`:
 
 ```tsx
 import { Field, Select, ToastProvider, toast } from 'colorscheme-ui';
