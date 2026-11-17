@@ -1,6 +1,53 @@
+@property --scroll-shadow-top {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+@property --scroll-shadow-bottom {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
 .container {
+  --scroll-shadow-top: 0px;
+  --scroll-shadow-bottom: 0px;
   overflow-y: auto;
   overflow-x: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0px,
+    black var(--scroll-shadow-top),
+    black calc(100% - var(--scroll-shadow-bottom)),
+    transparent 100%
+  );
+  animation-name: scrollShadowTop, scrollShadowBottom;
+  animation-duration: 1ms;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: scroll(self y);
+  animation-range:
+    0px 24px,
+    calc(100% - 24px) 100%;
+}
+
+@keyframes scrollShadowTop {
+  from {
+    --scroll-shadow-top: 0px;
+  }
+  to {
+    --scroll-shadow-top: 20px;
+  }
+}
+
+@keyframes scrollShadowBottom {
+  from {
+    --scroll-shadow-bottom: 20px;
+  }
+  to {
+    --scroll-shadow-bottom: 0px;
+  }
 }
 
 .hideScrollBar {
@@ -9,22 +56,4 @@
 
 .hideScrollBar::-webkit-scrollbar {
   display: none;
-}
-
-.maskTop {
-  mask-image: linear-gradient(to bottom, transparent 0px, #000 20px, #000 100%);
-}
-
-.maskBottom {
-  mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 20px), transparent 100%);
-}
-
-.maskBoth {
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0px,
-    #000 20px,
-    #000 calc(100% - 20px),
-    transparent 100%
-  );
 }

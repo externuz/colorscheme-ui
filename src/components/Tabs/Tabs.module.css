@@ -89,8 +89,7 @@
   pointer-events: none;
   transition:
     transform var(--transition-normal),
-    width var(--transition-normal),
-    height var(--transition-normal);
+    width var(--transition-normal);
 }
 
 .segmented .indicator {
