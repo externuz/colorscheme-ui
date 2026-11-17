@@ -179,6 +179,14 @@ bun run check           # Lint (Biome) + Typecheck (tsc) + Unit Tests (Vitest)
 bun run build           # Build ESM bundle, TypeScript declarations, and CSS
 ```
 
+## Acknowledgments
+
+Color palettes are inspired by the original open-source colorscheme creators:
+
+- **[Tokyo Night](https://github.com/enkia/tokyo-night-vscode-theme)** by [Enkia](https://github.com/enkia) (MIT)
+- **[Catppuccin](https://github.com/catppuccin/catppuccin)** by [Catppuccin Org](https://github.com/catppuccin) (MIT)
+- **[Gruvbox](https://github.com/morhetz/gruvbox)** by [Pavel Pertsev (`morhetz`)](https://github.com/morhetz) (MIT/X11)
+
 ## License
 
 [MIT](./LICENSE) © [Vladislav Kolesnikov](https://github.com/externuz)
