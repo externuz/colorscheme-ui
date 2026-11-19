@@ -3,7 +3,7 @@ import { Button } from '../Button/Button';
 import { Modal } from './Modal';
 
 const meta: Meta<typeof Modal.Root> = {
-  title: 'Components/Modal',
+  title: 'Overlays/Modal',
   component: Modal.Root,
 };
 

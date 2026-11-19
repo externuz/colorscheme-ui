@@ -3,7 +3,7 @@ import { Field } from '../Field/Field';
 import { Textarea } from './Textarea';
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Components/Textarea',
+  title: 'Forms/Textarea',
   component: Textarea,
   args: {
     size: 'md',

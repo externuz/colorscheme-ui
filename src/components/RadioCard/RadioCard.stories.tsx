@@ -5,7 +5,7 @@ import { RadioGroup } from '../Radio/Radio';
 import { RadioCard } from './RadioCard';
 
 const meta: Meta<typeof RadioCard> = {
-  title: 'Components/RadioCard',
+  title: 'Selection/RadioCard',
   component: RadioCard,
 };
 

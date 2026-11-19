@@ -3,7 +3,7 @@ import { Button } from '../Button/Button';
 import { Alert } from './Alert';
 
 const meta: Meta<typeof Alert> = {
-  title: 'Components/Alert',
+  title: 'Feedback/Alert',
   component: Alert,
 };
 

@@ -1,0 +1,130 @@
+.code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 1.35;
+  border-radius: var(--radius-xs);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.size-xs {
+  font-size: 11px;
+}
+
+.size-sm {
+  font-size: 12px;
+}
+
+.size-md {
+  font-size: 13px;
+}
+
+.size-lg {
+  font-size: 14px;
+}
+
+.subtle {
+  padding: 0.1em 0.38em;
+  border: 1px solid transparent;
+}
+
+.ghost {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.subtle.neutral {
+  background-color: var(--bg-sunken);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.subtle.accent {
+  background-color: var(--accent-subtle);
+  border-color: var(--accent-border);
+  color: var(--accent-primary);
+}
+
+.subtle.green {
+  background-color: var(--palette-green-subtle);
+  border-color: var(--palette-green-border);
+  color: var(--palette-green);
+}
+
+.subtle.yellow {
+  background-color: var(--palette-yellow-subtle);
+  border-color: var(--palette-yellow-border);
+  color: var(--palette-yellow);
+}
+
+.subtle.orange {
+  background-color: var(--palette-orange-subtle);
+  border-color: var(--palette-orange-border);
+  color: var(--palette-orange);
+}
+
+.subtle.red {
+  background-color: var(--palette-red-subtle);
+  border-color: var(--palette-red-border);
+  color: var(--palette-red);
+}
+
+.subtle.blue {
+  background-color: var(--palette-blue-subtle);
+  border-color: var(--palette-blue-border);
+  color: var(--palette-blue);
+}
+
+.subtle.purple {
+  background-color: var(--palette-purple-subtle);
+  border-color: var(--palette-purple-border);
+  color: var(--palette-purple);
+}
+
+.subtle.cyan {
+  background-color: var(--palette-cyan-subtle);
+  border-color: var(--palette-cyan-border);
+  color: var(--palette-cyan);
+}
+
+.ghost.neutral {
+  color: var(--text-primary);
+}
+
+.ghost.accent {
+  color: var(--accent-primary);
+}
+
+.ghost.green {
+  color: var(--palette-green);
+}
+
+.ghost.yellow {
+  color: var(--palette-yellow);
+}
+
+.ghost.orange {
+  color: var(--palette-orange);
+}
+
+.ghost.red {
+  color: var(--palette-red);
+}
+
+.ghost.blue {
+  color: var(--palette-blue);
+}
+
+.ghost.purple {
+  color: var(--palette-purple);
+}
+
+.ghost.cyan {
+  color: var(--palette-cyan);
+}

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Chip } from './Chip';
 
 const meta: Meta<typeof Chip> = {
-  title: 'Components/Chip',
+  title: 'Surfaces & Data/Chip',
   component: Chip,
 };
 

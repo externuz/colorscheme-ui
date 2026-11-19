@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { CheckboxCard } from './CheckboxCard';
 
 const meta: Meta<typeof CheckboxCard> = {
-  title: 'Components/CheckboxCard',
+  title: 'Selection/CheckboxCard',
   component: CheckboxCard,
 };
 

@@ -3,7 +3,7 @@ import { Input } from '../Input/Input';
 import { Field } from './Field';
 
 const meta: Meta<typeof Field.Root> = {
-  title: 'Components/Field',
+  title: 'Forms/Field',
   component: Field.Root,
 };
 

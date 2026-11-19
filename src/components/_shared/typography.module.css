@@ -1,0 +1,79 @@
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.truncate {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.color-primary {
+  --_text-color: var(--text-primary);
+}
+
+.color-secondary {
+  --_text-color: var(--text-secondary);
+}
+
+.color-muted {
+  --_text-color: var(--text-muted);
+}
+
+.color-accent {
+  --_text-color: var(--accent-primary);
+}
+
+.color-success {
+  --_text-color: var(--status-success);
+}
+
+.color-warning {
+  --_text-color: var(--status-warning);
+}
+
+.color-danger {
+  --_text-color: var(--status-danger);
+}
+
+.color-blue {
+  --_text-color: var(--palette-blue);
+}
+
+.color-purple {
+  --_text-color: var(--palette-purple);
+}
+
+.color-cyan {
+  --_text-color: var(--palette-cyan);
+}
+
+.color-green {
+  --_text-color: var(--palette-green);
+}
+
+.color-yellow {
+  --_text-color: var(--palette-yellow);
+}
+
+.color-orange {
+  --_text-color: var(--palette-orange);
+}
+
+.color-red {
+  --_text-color: var(--palette-red);
+}
+
+.color-inherit {
+  --_text-color: currentColor;
+}

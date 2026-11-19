@@ -1,0 +1,83 @@
+.text {
+  margin: 0;
+  font-family: var(--_text-font, var(--font-sans));
+  font-size: var(--_text-size, 13px);
+  line-height: var(--_text-leading, 1.5);
+  font-weight: var(--_text-weight, 400);
+  color: var(--_text-color, var(--text-primary));
+}
+
+.mono {
+  --_text-font: var(--font-mono);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+}
+
+.strikethrough {
+  text-decoration-line: line-through;
+}
+
+.underlineStrikethrough {
+  text-decoration-line: underline line-through;
+  text-underline-offset: 3px;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.lineClamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--_line-clamp);
+  line-clamp: var(--_line-clamp);
+  overflow: hidden;
+}
+
+.weight-regular {
+  --_text-weight: 400;
+}
+
+.weight-medium {
+  --_text-weight: 500;
+}
+
+.weight-semibold {
+  --_text-weight: 600;
+}
+
+.weight-bold {
+  --_text-weight: 700;
+}
+
+.size-xs {
+  --_text-size: 11px;
+  --_text-leading: 1.45;
+}
+
+.size-sm {
+  --_text-size: 12px;
+  --_text-leading: 1.45;
+}
+
+.size-md {
+  --_text-size: 13px;
+  --_text-leading: 1.5;
+}
+
+.size-lg {
+  --_text-size: 14px;
+  --_text-leading: 1.55;
+}
+
+.size-xl {
+  --_text-size: 16px;
+  --_text-leading: 1.55;
+}

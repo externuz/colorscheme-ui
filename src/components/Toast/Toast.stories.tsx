@@ -3,7 +3,7 @@ import { Button } from '../Button/Button';
 import { ToastProvider, toast } from './Toast';
 
 const meta: Meta<typeof ToastProvider> = {
-  title: 'Components/Toast',
+  title: 'Feedback/Toast',
   component: ToastProvider,
 };
 

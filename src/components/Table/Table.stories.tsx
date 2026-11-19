@@ -4,7 +4,7 @@ import { Chip } from '../Chip/Chip';
 import { Table } from './Table';
 
 const meta: Meta<typeof Table.Root> = {
-  title: 'Components/Table',
+  title: 'Surfaces & Data/Table',
   component: Table.Root,
 };
 

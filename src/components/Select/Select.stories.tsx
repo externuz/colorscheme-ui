@@ -5,7 +5,7 @@ import { Field } from '../Field/Field';
 import { Select } from './Select';
 
 const meta: Meta<typeof Select.Root> = {
-  title: 'Components/Select',
+  title: 'Forms/Select',
   component: Select.Root,
 };
 

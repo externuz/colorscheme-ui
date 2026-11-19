@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ScrollShadow } from './ScrollShadow';
 
 const meta: Meta<typeof ScrollShadow> = {
-  title: 'Components/ScrollShadow',
+  title: 'Surfaces & Data/ScrollShadow',
   component: ScrollShadow,
 };
 

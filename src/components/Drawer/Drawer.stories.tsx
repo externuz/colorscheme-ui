@@ -3,7 +3,7 @@ import { Button } from '../Button/Button';
 import { Drawer } from './Drawer';
 
 const meta: Meta<typeof Drawer.Root> = {
-  title: 'Components/Drawer',
+  title: 'Overlays/Drawer',
   component: Drawer.Root,
 };
 

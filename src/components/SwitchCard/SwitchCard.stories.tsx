@@ -5,7 +5,7 @@ import { Chip } from '../Chip/Chip';
 import { SwitchCard } from './SwitchCard';
 
 const meta: Meta<typeof SwitchCard> = {
-  title: 'Components/SwitchCard',
+  title: 'Selection/SwitchCard',
   component: SwitchCard,
 };
 

@@ -134,12 +134,15 @@ If you only want the CSS variables without the React components, import `colorsc
 
 ---
 
-## Included Components (29)
+## Included Components (35)
 
-- **Atomic Form Controls**: `Button`, `Input`, `Textarea`, `Select`, `Field`, `Fieldset`, `Checkbox`, `Switch`, `RadioGroup` + `Radio`, `Slider`, `ToggleGroup`
-- **Choice Cards**: `SwitchCard`, `CheckboxCard`, `RadioCard`
-- **Surfaces, Feedback & Data Display**: `Card`, `Table` (`bordered` / `plain`), `Alert`, `Avatar`, `Chip`, `Skeleton`, `Separator`, `ScrollShadow`, `Spinner`
-- **Navigation, Disclosure & Overlays**: `Tabs`, `Accordion`, `Collapsible`, `Modal`, `Drawer`, `Dropdown`, `ToastProvider` + `toast`, `Tooltip` (`TooltipProvider`)
+- **Typography**: `Heading`, `Text`, `Code`, `Kbd`
+- **Forms**: `Button`, `ToggleGroup`, `Input`, `Textarea`, `Select`, `Slider`, `Field`, `Fieldset`
+- **Selection**: `Checkbox`, `RadioGroup` + `Radio`, `Switch`, `CheckboxCard`, `RadioCard`, `SwitchCard`
+- **Surfaces & Data**: `Card`, `Table` (`bordered` / `plain`), `Avatar`, `Chip`, `Separator`, `ScrollShadow`
+- **Navigation & Disclosure**: `Tabs`, `Accordion`, `Collapsible`
+- **Feedback**: `Alert`, `ToastProvider` + `toast`, `Spinner`, `Skeleton`
+- **Overlays**: `Modal`, `Drawer`, `Dropdown`, `Tooltip` (`TooltipProvider`)
 - **Utilities**: `cn`, `useColorScheme`, `configureColorScheme`, `applyThemeToDom`, `getThemeInitScript`, `THEMES`
 
 ### API Patterns & Customization

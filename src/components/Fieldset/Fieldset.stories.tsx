@@ -5,7 +5,7 @@ import { Switch } from '../Switch/Switch';
 import { Fieldset } from './Fieldset';
 
 const meta: Meta<typeof Fieldset.Root> = {
-  title: 'Components/Fieldset',
+  title: 'Forms/Fieldset',
   component: Fieldset.Root,
 };
 

@@ -1,6 +1,7 @@
 import './styles/tokens.css';
 
 export type { ChoiceCardContentProps, ControlColor } from './components/_shared/ChoiceCard';
+export type { TypographyAlign, TypographyColor } from './components/_shared/typography';
 export {
   Accordion,
   type AccordionItemProps,
@@ -30,6 +31,13 @@ export { Checkbox, type CheckboxProps } from './components/Checkbox/Checkbox';
 export { CheckboxCard, type CheckboxCardProps } from './components/CheckboxCard/CheckboxCard';
 export { Chip, type ChipColor, type ChipProps } from './components/Chip/Chip';
 export {
+  Code,
+  type CodeColor,
+  type CodeProps,
+  type CodeSize,
+  type CodeVariant,
+} from './components/Code/Code';
+export {
   Collapsible,
   type CollapsiblePanelProps,
   type CollapsibleRootProps,
@@ -43,7 +51,15 @@ export {
   type FieldsetPadding,
   type FieldsetRootProps,
 } from './components/Fieldset/Fieldset';
+export {
+  Heading,
+  type HeadingAs,
+  type HeadingProps,
+  type HeadingSize,
+  type HeadingWeight,
+} from './components/Heading/Heading';
 export { Input, type InputProps } from './components/Input/Input';
+export { Kbd, type KbdProps, type KbdSize, type KbdVariant } from './components/Kbd/Kbd';
 export { Modal, type ModalSize } from './components/Modal/Modal';
 export { Radio, RadioGroup, type RadioGroupProps, type RadioProps } from './components/Radio/Radio';
 export { RadioCard, type RadioCardProps } from './components/RadioCard/RadioCard';
@@ -79,6 +95,14 @@ export {
   type TabsTabProps,
   type TabsVariant,
 } from './components/Tabs/Tabs';
+export {
+  Text,
+  type TextAs,
+  type TextOwnProps,
+  type TextProps,
+  type TextSize,
+  type TextWeight,
+} from './components/Text/Text';
 export { Textarea, type TextareaProps } from './components/Textarea/Textarea';
 export {
   type ToastActionOption,

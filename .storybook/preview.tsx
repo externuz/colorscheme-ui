@@ -33,6 +33,27 @@ const preview: Preview = {
   parameters: {
     layout: 'centered',
     backgrounds: { disable: true },
+    options: {
+      storySort: {
+        order: [
+          'Overview',
+          'Typography',
+          ['Heading', 'Text', 'Code', 'Kbd'],
+          'Forms',
+          ['Button', 'ToggleGroup', 'Input', 'Textarea', 'Select', 'Slider', 'Field', 'Fieldset'],
+          'Selection',
+          ['Checkbox', 'Radio', 'Switch', 'CheckboxCard', 'RadioCard', 'SwitchCard'],
+          'Surfaces & Data',
+          ['Card', 'Table', 'Avatar', 'Chip', 'Separator', 'ScrollShadow'],
+          'Navigation & Disclosure',
+          ['Tabs', 'Accordion', 'Collapsible'],
+          'Feedback',
+          ['Alert', 'Toast', 'Spinner', 'Skeleton'],
+          'Overlays',
+          ['Modal', 'Drawer', 'Dropdown', 'Tooltip'],
+        ],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

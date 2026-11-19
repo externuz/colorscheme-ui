@@ -10,6 +10,7 @@ import {
   Checkbox,
   CheckboxCard,
   Chip,
+  Code,
   Collapsible,
   configureColorScheme,
   Drawer,
@@ -18,7 +19,9 @@ import {
   Fieldset,
   getAvatarInitials,
   getThemeInitScript,
+  Heading,
   Input,
+  Kbd,
   Modal,
   Radio,
   RadioCard,
@@ -33,6 +36,7 @@ import {
   setColorScheme,
   Table,
   Tabs,
+  Text,
   Textarea,
   THEMES,
   ToastProvider,
@@ -459,6 +463,62 @@ describe('colorscheme-ui', () => {
     } finally {
       window.Image = OriginalImage;
     }
+  });
+
+  it('Heading, Text, Code, and Kbd render semantic tags and typography modifiers cleanly', () => {
+    render(
+      <div>
+        <Heading as="h1" size="3xl" mono truncate data-testid="hero-heading">
+          :colorscheme tokyo-night
+        </Heading>
+        <Heading data-testid="default-heading">Section Title</Heading>
+        <Text
+          as="p"
+          size="sm"
+          weight="medium"
+          color="secondary"
+          lineClamp={2}
+          data-testid="clamped-paragraph"
+        >
+          Press <Kbd size="sm">⌘</Kbd> <Kbd variant="flat">K</Kbd> or call{' '}
+          <Code color="purple" variant="subtle" nowrap>
+            useColorScheme()
+          </Code>
+        </Text>
+        <Text
+          as="label"
+          htmlFor="port-field"
+          underline
+          strikethrough
+          italic
+          tabular
+          data-testid="styled-label"
+        >
+          5432
+        </Text>
+      </div>,
+    );
+
+    const heroHeading = screen.getByTestId('hero-heading');
+    expect(heroHeading.tagName).toBe('H1');
+    expect(heroHeading).toHaveTextContent(':colorscheme tokyo-night');
+
+    const defaultHeading = screen.getByTestId('default-heading');
+    expect(defaultHeading.tagName).toBe('H2');
+
+    const paragraph = screen.getByTestId('clamped-paragraph');
+    expect(paragraph.tagName).toBe('P');
+    expect(paragraph.style.getPropertyValue('--_line-clamp')).toBe('2');
+
+    const codeEl = screen.getByText('useColorScheme()');
+    expect(codeEl.tagName).toBe('CODE');
+
+    const kbdEl = screen.getByText('⌘');
+    expect(kbdEl.tagName).toBe('KBD');
+
+    const labelEl = screen.getByTestId('styled-label');
+    expect(labelEl.tagName).toBe('LABEL');
+    expect(labelEl).toHaveAttribute('for', 'port-field');
   });
 
   it('ToastProvider + imperative toast render and dismiss notifications', () => {
